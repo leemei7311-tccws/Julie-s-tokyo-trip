@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julie's 的東京獨旅</title>
+    <style>
+        /* 莫蘭迪色系設定 - 低彩度、舒適視覺 */
+        :root {
+            --morandi-pink: #d8a7b1;    /* 灰粉色 */
+            --morandi-bg: #f4eeed;      /* 極淺藕粉背景 */
+            --morandi-blue: #b5c0d0;    /* 灰藍色 */
+            --morandi-green: #9ca986;   /* 灰綠色 (導航用) */
+            --morandi-text: #5b5b5b;    /* 深灰字體 */
+            --white: #ffffff;
+            --font-size-base: 24px;     /* 24px 基準字體 */
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            background-color: var(--morandi-bg);
+            color: var(--morandi-text);
+            margin: 0;
+            padding: 15px;
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 25px 0;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        h1 { color: var(--morandi-pink); margin: 0; font-size: 1.6rem; letter-spacing: 2px; }
+
+        /* 頁籤設計 */
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .tab-btn {
+            background-color: var(--white);
+            border: 2px solid var(--morandi-pink);
+            color: var(--morandi-pink);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: var(--font-size-base);
+            font-weight: bold;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .tab-btn.active { background-color: var(--morandi-pink); color: var(--white); }
+
+        .day-content { display: none; animation: fadeIn 0.4s; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .section-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            margin-bottom: 20px;
+            border-top: 6px solid var(--morandi-pink);
+        }
+
+        h2 { color: var(--morandi-pink); margin-top: 0; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+
+        /* 大型輸入區域 */
+        .note-area {
+            width: 100%;
+            height: 150px;
+            border: 2px dashed var(--morandi-blue);
+            background-color: #fafafa;
+            border-radius: 15px;
+            padding: 15px;
+            font-size: 20px;
+            color: #666;
+            margin-top: 10px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        /* 導航按鈕 */
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--morandi-green);
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 15px;
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 0 #7d8b68;
+        }
+
+        .nav-btn:active { transform: translateY(3px); box-shadow: none; }
+
+        .train-item {
+            background: #fdfdfd;
+            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+        }
+
+        .train-time { color: var(--morandi-pink); font-weight: bold; }
+        .platform-input {
+            border: none;
+            border-bottom: 2px solid var(--morandi-blue);
+            width: 80px;
+            font-size: 24px;
+            text-align: center;
+            color: var(--morandi-pink);
+            background: transparent;
+        }
+
+        .walk-tag { font-size: 18px; color: #999; font-weight: normal; }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌸 Julie's 的東京獨旅</h1>
+</header>
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="showDay('day1', event)">4/19</button>
+    <button class="tab-btn" onclick="showDay('day2', event)">4/20</button>
+    <button class="tab-btn" onclick="showDay('day3', event)">4/21</button>
+    <button class="tab-btn" onclick="showDay('day4', event)">4/22</button>
+    <button class="tab-btn" onclick="showDay('day5', event)">4/23</button>
+</div>
+
+<div id="day1" class="day-content" style="display:block;">
+    <div class="section-card">
+        <h2>📅 4/19 抵達東京</h2>
+        <div class="train-item">航班抵達：17:55 (成田 T2)</div>
+        <p>🚆 <strong>成田特快 (N'EX) 往東京：</strong></p>
+        <div class="train-item"><span class="train-time">16:48-17:45</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">17:19-18:18</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">17:48-18:48</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">18:19-19:20</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">18:48-19:45</span> 月台 <input class="platform-input" placeholder="?"></div>
+        
+        <p>✍️ <strong>N'EX 購票指南備忘：</strong></p>
+        <textarea class="note-area" placeholder="在此輸入購票位置、櫃檯顏色或其他提醒..."></textarea>
+    </div>
+
+    <div class="section-card">
+        <h3>🏨 下榻：銀座大和飯店</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Daiwa+Roynet+Hotel+Ginza" class="nav-btn" target="_blank">📍 導航至飯店</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Ginza-itchome+Station" class="nav-btn" target="_blank">🚉 銀座一丁目站 <span class="walk-tag">(50m)</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Kyobashi+Station" class="nav-btn" target="_blank">🚉 京橋站 <span class="walk-tag">(350m)</span></a>
+    </div>
+</div>
+
+<div id="day2" class="day-content">
+    <div class="section-card">
+        <h2>📅 4/20 東京 → 輕井澤</h2>
+        <p>🚆 <strong>新幹線班次：</strong></p>
+        <div class="train-item"><span class="train-time">10:33-11:36</span> (白鷹559) 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">11:04-12:15</span> (淺間609) 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">12:04-13:20</span> (淺間611) 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">13:04-14:15</span> (淺間613) 月台 <input class="platform-input" placeholder="?"></div>
+        
+        <p>✍️ <strong>新幹線購票/乘車指南：</strong></p>
+        <textarea class="note-area" placeholder="在此輸入東京車站找月台的動線或購票地點..."></textarea>
+    </div>
+
+    <div class="section-card">
+        <h3>🏨 下榻：Glamday Style</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Glamday+Style+Hotel+Resort+Kyu-Karuizawa" class="nav-btn" target="_blank">📍 導航至輕井澤飯店</a>
+    </div>
+</div>
+
+<div id="day3" class="day-content">
+    <div class="section-card">
+        <h2>📅 4/21 輕井澤當地行程</h2>
+        <p>🌲 悠閒漫遊：雲場池、舊輕井澤、王子 Outlet</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Glamday+Style+Hotel+Resort+Kyu-Karuizawa" class="nav-btn" target="_blank">📍 導航回飯店 (Glamday Style)</a>
+    </div>
+</div>
+
+<div id="day4" class="day-content">
+    <div class="section-card">
+        <h2>📅 4/22 輕井澤 → 東京</h2>
+        <p>🚆 <strong>新幹線班次：</strong></p>
+        <div class="train-item"><span class="train-time">12:00-13:12</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">13:00-14:12</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">13:57-15:12</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">15:00-16:12</span> 月台 <input class="platform-input" placeholder="?"></div>
+        
+        <p>✍️ <strong>輕井澤站購票備忘：</strong></p>
+        <textarea class="note-area" placeholder="輸入輕井澤站買土產或找月台的心得..."></textarea>
+    </div>
+
+    <div class="section-card">
+        <h3>🏨 下榻：銀座大和飯店</h3>
+        <a href="https://www.google.com/maps/search/?api=1&query=Daiwa+Roynet+Hotel+Ginza" class="nav-btn" target="_blank">📍 導航回飯店</a>
+    </div>
+</div>
+
+<div id="day5" class="day-content">
+    <div class="section-card">
+        <h2>📅 4/23 返程桃園</h2>
+        <div class="train-item">航班起飛：16:35 (成田 T2)</div>
+        <p>🚆 <strong>N'EX 往機場：</strong></p>
+        <div class="train-item"><span class="train-time">12:03-12:54</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">12:33-13:23</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">13:03-13:53</span> 月台 <input class="platform-input" placeholder="?"></div>
+        <div class="train-item"><span class="train-time">13:33-14:27</span> 月台 <input class="platform-input" placeholder="?"></div>
+        
+        <p>✍️ <strong>機場快線購票指南：</strong></p>
+        <textarea class="note-area" placeholder="在此輸入最後採買與搭車提醒..."></textarea>
+    </div>
+</div>
+
+<script>
+    function showDay(dayId, event) {
+        var contents = document.getElementsByClassName("day-content");
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].style.display = "none";
+        }
+        var buttons = document.getElementsByClassName("tab-btn");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        document.getElementById(dayId).style.display = "block";
+        event.currentTarget.classList.add("active");
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+
+    // 讓內容即便重新整理也能暫時保留在輸入框 (使用瀏覽器本地儲存)
+    document.querySelectorAll('textarea, input').forEach((el, index) => {
+        const saved = localStorage.getItem('trip-note-' + index);
+        if (saved) el.value = saved;
+        el.addEventListener('input', () => {
+            localStorage.setItem('trip-note-' + index, el.value);
+        });
+    });
+</script>
+
+</body>
+</html>
