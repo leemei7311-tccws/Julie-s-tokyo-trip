@@ -6,11 +6,11 @@
     <title>Julie's 的東京獨旅</title>
     <style>
         :root {
-            --morandi-pink: #D8A7B1;    /* 灰粉色 */
-            --morandi-bg: #F4EEED;      /* 淺藕色 */
-            --morandi-blue: #B5C0D0;    /* 灰藍色 */
-            --morandi-green: #8E9775;   /* 莫蘭迪深綠 (導航用) */
-            --text-dark: #333333;       /* 高對比深色字 */
+            --morandi-pink: #D8A7B1;
+            --morandi-bg: #F4EEED;
+            --morandi-blue: #B5C0D0;
+            --morandi-green: #8E9775;
+            --text-dark: #333333;
             --white: #ffffff;
             --font-size-base: 24px;
         }
@@ -70,7 +70,6 @@
 
         h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
 
-        /* 導航按鈕 - 增強對比 */
         .nav-btn {
             display: block;
             background-color: var(--morandi-green);
@@ -88,7 +87,7 @@
 
         .dist-tag {
             display: block;
-            color: #ffffff; /* 確保白色在綠色背景上完全清晰 */
+            color: #ffffff;
             font-size: 20px;
             margin-top: 5px;
             font-weight: normal;
@@ -96,12 +95,7 @@
             border-radius: 5px;
         }
 
-        /* 列車班次 */
-        .train-item {
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-
+        .train-item { border-bottom: 1px solid #eee; padding: 15px 0; }
         .train-name { color: var(--morandi-pink); font-weight: bold; }
 
         .platform-input {
@@ -114,9 +108,10 @@
             background: transparent;
         }
 
+        /* 彈性輸入框設定 */
         .note-area {
             width: 100%;
-            height: 150px;
+            min-height: 180px; /* 基本高度 */
             border: 2px dashed var(--morandi-blue);
             background-color: #fafafa;
             border-radius: 15px;
@@ -125,6 +120,8 @@
             margin-top: 10px;
             box-sizing: border-box;
             font-family: inherit;
+            resize: vertical; /* 允許垂直拉伸 */
+            overflow: auto; /* 超過高度自動顯示捲軸 */
         }
 
     </style>
@@ -160,14 +157,14 @@
 
     <div class="section-card">
         <h3>🏨 導航：銀座大和飯店</h3>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=PLACE_NAME_OR_ADDRESS6" class="nav-btn" target="_blank">📍 導航至飯店</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Daiwa+Roynet+Hotel+Ginza" class="nav-btn" target="_blank">📍 導航至飯店</a>
         
         <p>🚉 <strong>周邊車站導航：</strong></p>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=PLACE_NAME_OR_ADDRESS7" class="nav-btn" target="_blank">銀座一丁目站 (有樂町線)<span class="dist-tag">🚶 步行約 50m</span></a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=PLACE_NAME_OR_ADDRESS8" class="nav-btn" target="_blank">京橋站 (銀座線)<span class="dist-tag">🚶 步行約 350m</span></a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=PLACE_NAME_OR_ADDRESS9" class="nav-btn" target="_blank">東銀座站 (日比谷/淺草線)<span class="dist-tag">🚶 步行約 400m</span></a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Onsen+Ryokan+Yuen+Shinjuku0" class="nav-btn" target="_blank">銀座站 (丸之內/日比谷線)<span class="dist-tag">🚶 步行約 600m</span></a>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Onsen+Ryokan+Yuen+Shinjuku1" class="nav-btn" target="_blank">東京車站 (丸之內線/JR)<span class="dist-tag">🚶 步行約 800m</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Ginza-itchome+Station" class="nav-btn" target="_blank">銀座一丁目站 (有樂町線)<span class="dist-tag">🚶 步行約 50m</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Kyobashi+Station+Tokyo" class="nav-btn" target="_blank">京橋站 (銀座線)<span class="dist-tag">🚶 步行約 350m</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Higashi-ginza+Station" class="nav-btn" target="_blank">東銀座站 (日比谷/淺草線)<span class="dist-tag">🚶 步行約 400m</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Ginza+Station" class="nav-btn" target="_blank">銀座站 (丸之內/日比谷線)<span class="dist-tag">🚶 步行約 600m</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Tokyo+Station" class="nav-btn" target="_blank">東京車站 (丸之內線/JR)<span class="dist-tag">🚶 步行約 800m</span></a>
     </div>
 </div>
 
@@ -185,7 +182,7 @@
         <textarea class="note-area"></textarea>
     </div>
     <div class="section-card">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Onsen+Ryokan+Yuen+Shinjuku2" class="nav-btn" target="_blank">📍 導航至輕井澤飯店</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Glamday+Style+Hotel+Resort+Kyu-Karuizawa" class="nav-btn" target="_blank">📍 導航至輕井澤飯店</a>
     </div>
 </div>
 
@@ -193,7 +190,7 @@
     <div class="section-card">
         <h2>📅 4/21 輕井澤漫遊</h2>
         <p>🌲 當地行程 (雲場池、舊輕井澤、Outlet)</p>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Onsen+Ryokan+Yuen+Shinjuku2" class="nav-btn" target="_blank">📍 導航回飯店 (Glamday Style)</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Glamday+Style+Hotel+Resort+Kyu-Karuizawa" class="nav-btn" target="_blank">📍 導航回飯店 (Glamday Style)</a>
     </div>
 </div>
 
@@ -210,15 +207,18 @@
         <textarea class="note-area"></textarea>
     </div>
     <div class="section-card">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=PLACE_NAME_OR_ADDRESS6" class="nav-btn" target="_blank">📍 導航回銀座大和飯店</a>
+        <a href="https://www.google.com/maps/search/?api=1&query=Daiwa+Roynet+Hotel+Ginza" class="nav-btn" target="_blank">📍 導航回銀座大和飯店</a>
     </div>
 </div>
 
 <div id="day5" class="day-content">
     <div class="section-card">
         <h2>📅 4/23 返回台灣</h2>
-        <div class="train-item">航班起飛：16:35 (成田 T2)</div>
-        <p>🚆 <strong>N'EX 往機場：</strong></p>
+        <div class="train-item">✈️ <strong>航班資訊：</strong></div>
+        <div class="train-item"><strong>16:35</strong> 成田起飛 (NRT T2)</div>
+        <div class="train-item"><strong>20:35</strong> 抵達桃園 (TPE)</div>
+        
+        <p style="margin-top:20px;">🚆 <strong>N'EX 往機場：</strong></p>
         <div class="train-item"><span class="train-name">12:03-12:54 (23號)</span> 月台 <input class="platform-input"></div>
         <div class="train-item"><span class="train-name">12:33-13:23 (25號)</span> 月台 <input class="platform-input"></div>
         <div class="train-item"><span class="train-name">13:03-13:53 (27號)</span> 月台 <input class="platform-input"></div>
@@ -244,7 +244,6 @@
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
 
-    // 自動存檔功能
     document.querySelectorAll('textarea, input').forEach((el, index) => {
         const saved = localStorage.getItem('tokyo-trip-' + index);
         if (saved) el.value = saved;
