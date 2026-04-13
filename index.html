@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Julie's 東京獨旅</title>
+    <title>Julie's 的東京獨旅</title>
     <style>
         :root {
             --morandi-pink: #D8A7B1;
@@ -72,7 +72,9 @@
         }
 
         h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+        h3 { color: var(--morandi-green); font-size: 1.2rem; margin-top: 15px; }
 
+        /* 導航按鈕 */
         .nav-btn {
             display: block; background-color: var(--morandi-green); color: white; text-decoration: none;
             padding: 18px; border-radius: 15px; margin: 12px 0; font-weight: bold; text-align: center;
@@ -81,9 +83,9 @@
         .nav-btn:active { transform: translateY(4px); box-shadow: none; }
         .dist-tag { display: block; color: #ffffff; font-size: 18px; margin-top: 5px; font-weight: normal; background: rgba(0,0,0,0.15); border-radius: 5px; padding: 2px; }
 
-        /* 3D 翻轉卡片設計 (加高以容納完整資訊) */
+        /* 3D 翻轉卡片 */
         .flip-card {
-            background-color: transparent; width: 100%; height: 210px;
+            background-color: transparent; width: 100%; height: 220px;
             perspective: 1000px; margin-bottom: 15px; cursor: pointer;
         }
         .flip-card-inner {
@@ -96,31 +98,31 @@
             border-radius: 15px; padding: 15px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .flip-card-front { background-color: #fdfafb; border: 2px solid var(--morandi-pink); color: var(--text-dark); }
-        .flip-card-back { background-color: var(--morandi-pink); color: white; transform: rotateY(180deg); text-align: left; padding: 15px 20px; }
+        .flip-card-back { background-color: var(--morandi-pink); color: white; transform: rotateY(180deg); text-align: left; padding: 15px 25px; }
         
         .fc-time { font-size: 26px; font-weight: bold; color: var(--morandi-pink); }
         .fc-train { font-size: 20px; font-weight: bold; margin: 5px 0; }
         .fc-track { font-size: 18px; color: #666; background: #eee; border-radius: 5px; padding: 4px; display: inline-block;}
         .fc-hint { font-size: 14px; color: #999; margin-top: 10px; }
         
-        /* 背面詳細購票資訊設計 */
-        .fc-jp-title { font-size: 22px; font-weight: bold; line-height: 1.2; text-align: center; }
-        .fc-cn-title { font-size: 15px; opacity: 0.9; text-align: center; margin-bottom: 8px; }
-        .fc-divider { border-top: 1px dashed rgba(255,255,255,0.5); border-bottom: none; margin: 8px 0; }
-        .fc-detail { font-size: 17px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 4px 8px; margin-bottom: 5px; line-height: 1.4; }
+        .fc-jp-title { font-size: 22px; font-weight: bold; text-align: center; margin-bottom: 5px; }
+        .fc-cn-title { font-size: 15px; opacity: 0.9; text-align: center; margin-bottom: 10px; }
+        .fc-detail { font-size: 17px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 10px; margin-bottom: 6px; }
+
+        /* 地鐵圖與景點列表 */
+        .spot-list { font-size: 18px; padding-left: 20px; margin-bottom: 15px; }
+        .spot-list li { margin-bottom: 10px; }
+        .highlight { color: var(--morandi-pink); font-weight: bold; }
 
         .accordion {
             background-color: #f9f9f9; color: var(--text-dark); cursor: pointer; padding: 18px; width: 100%;
             text-align: left; border: none; outline: none; transition: 0.4s; font-size: 20px; font-weight: bold;
             border-radius: 10px; margin-bottom: 8px; border-left: 8px solid #ccc; 
         }
-        .accordion:after { content: '\002B'; float: right; font-weight: bold; }
         .accordion.active:after { content: "\2212"; }
+        .accordion:after { content: '\002B'; float: right; font-weight: bold; }
         .panel { padding: 0 15px; background-color: white; display: none; overflow: hidden; border-left: 4px solid #ccc; margin-left: 10px; margin-bottom: 15px; }
         .station-item { position: relative; padding: 10px 0 10px 20px; border-bottom: 1px dashed #eee; font-size: 18px; }
-        .station-item::before { content: ''; position: absolute; left: -21px; top: 15px; width: 12px; height: 12px; border-radius: 50%; background-color: inherit; border: 3px solid white; box-shadow: 0 0 0 1px #ccc; }
-
-        .note-area { width: 100%; min-height: 150px; border: 2px dashed var(--morandi-blue); background-color: #fafafa; border-radius: 15px; padding: 15px; font-size: 20px; margin-top: 10px; box-sizing: border-box; resize: vertical; }
     </style>
 </head>
 <body>
@@ -135,30 +137,27 @@
     <button class="tab-btn" onclick="showDay('day3', this)">4/21</button>
     <button class="tab-btn" onclick="showDay('day4', this)">4/22</button>
     <button class="tab-btn" onclick="showDay('day5', this)">4/23</button>
-    <button class="tab-btn" onclick="showDay('metro', this)">🗺️ 地鐵/公車</button>
+    <button class="tab-btn" onclick="showDay('metro', this)">🗺️ 地鐵/交通</button>
 </div>
 
 <div id="day1" class="day-content" style="display:block;">
     <div class="section-card">
         <h2>📅 4/19 抵達東京</h2>
         <p>✈️ CI 0104 (12:15 TPE ➔ 16:35 NRT)</p>
-        <p>🚆 <strong>N'EX 購票卡 (點擊卡片翻轉)</strong></p>
+        <p>🚆 <strong>N'EX 購票卡 (點擊翻轉)</strong></p>
         
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="fc-time">18:48 ➔ 19:45</div>
                     <div class="fc-train">成田快線 (N'EX) 46號</div>
-                    <div class="fc-track">成田 1號線出發 ➔ 東京 總武線1</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 N'EX 46号 / 成田エクスプレス (18:48発)</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 N'EX 46号 (18:48発)</div>
                     <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
                 </div>
             </div>
         </div>
@@ -168,31 +167,47 @@
                 <div class="flip-card-front">
                     <div class="fc-time">19:20 ➔ 20:13</div>
                     <div class="fc-train">成田快線 (N'EX) 48號</div>
-                    <div class="fc-track">成田 1號線出發 ➔ 東京 總武線1</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 N'EX 48号 / 成田エクスプレス (19:20発)</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 N'EX 48号 (19:20発)</div>
                     <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
                 </div>
             </div>
         </div>
-        
-        <textarea class="note-area" placeholder="在此輸入筆記..."></textarea>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">19:53 ➔ 20:51</div>
+                    <div class="fc-train">成田快線 (N'EX) 50號</div>
+                    <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 N'EX 50号 (19:53発)</div>
+                    <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
+                </div>
+            </div>
+        </div>
     </div>
+
     <div class="section-card">
-        <h3>🏨 住宿：銀座大和飯店</h3>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Daiwa+Roynet+Hotel+Ginza&travelmode=transit" class="nav-btn" target="_blank">📍 大眾運輸導航至飯店</a>
+        <h3>🏨 下榻：銀座大和飯店 (步行導航)</h3>
+        <a href="https://maps.app.goo.gl/CNY5AfvsE3fqQD4aA" class="nav-btn" target="_blank">🚶 銀座一丁目站 (有樂町線)<span class="dist-tag">步行 50m / 1分鐘</span></a>
+        <a href="https://maps.app.goo.gl/x9gV9RtY2i6v2Hep7" class="nav-btn" target="_blank">🚶 京橋站 (銀座線)<span class="dist-tag">步行 350m / 5分鐘</span></a>
+        <a href="https://maps.app.goo.gl/2tXzb9rDHaRs3Xbg9" class="nav-btn" target="_blank">🚶 東銀座站 (日比谷/淺草線)<span class="dist-tag">步行 400m / 6分鐘</span></a>
+        <a href="https://maps.app.goo.gl/EWN52UdGQCMnpGQD8" class="nav-btn" target="_blank">🚶 銀座站 (丸之內/日比谷線)<span class="dist-tag">步行 600m / 8分鐘</span></a>
+        <a href="https://maps.app.goo.gl/BPWs6qaJsGci1ejr7" class="nav-btn" target="_blank">🚶 東京車站 (丸之內線)<span class="dist-tag">步行 800m / 12分鐘</span></a>
     </div>
 </div>
 
 <div id="day2" class="day-content">
     <div class="section-card">
-        <h2>📅 4/20 前往輕井澤</h2>
+        <h2>📅 4/20 東京 ➔ 輕井澤</h2>
         <p>🚆 <strong>新幹線購票卡 (點擊翻轉)</strong></p>
         
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -200,16 +215,13 @@
                 <div class="flip-card-front">
                     <div class="fc-time">11:04 ➔ 12:15</div>
                     <div class="fc-train">淺間 609號 (Asama)</div>
-                    <div class="fc-track">東京 23月台 ➔ 輕井澤 3·4月台</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">東京 [23月台] ➔ 輕井澤 [3/4月台]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 浅間 609号 / 新幹線あさま (11:04発)</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 609号 (11:04発)</div>
                     <div class="fc-detail">📍 東京 ➔ 軽井沢 (Karuizawa)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
                 </div>
             </div>
         </div>
@@ -219,60 +231,141 @@
                 <div class="flip-card-front">
                     <div class="fc-time">12:04 ➔ 13:20</div>
                     <div class="fc-train">淺間 611號 (Asama)</div>
-                    <div class="fc-track">東京 22月台 ➔ 輕井澤 3·4月台</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">東京 [22月台] ➔ 輕井澤 [3/4月台]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 浅間 611号 / 新幹線あさま (12:04発)</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 611号 (12:04発)</div>
                     <div class="fc-detail">📍 東京 ➔ 軽井沢 (Karuizawa)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
                 </div>
             </div>
         </div>
 
-        <textarea class="note-area"></textarea>
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">13:04 ➔ 14:15</div>
+                    <div class="fc-train">淺間 613號 (Asama)</div>
+                    <div class="fc-track">東京 [20月台] ➔ 輕井澤 [3/4月台]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 613号 (13:04発)</div>
+                    <div class="fc-detail">📍 東京 ➔ 軽井沢 (Karuizawa)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">14:04 ➔ 15:20</div>
+                    <div class="fc-train">淺間 615號 (Asama)</div>
+                    <div class="fc-track">東京 [21月台] ➔ 輕井澤 [3/4月台]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 615号 (14:04発)</div>
+                    <div class="fc-detail">📍 東京 ➔ 軽井沢 (Karuizawa)</div>
+                </div>
+            </div>
+        </div>
     </div>
+    
     <div class="section-card">
-        <h3>🏨 住宿：Glamday Style</h3>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=GLAMDAY+STYLE+Karuizawa&travelmode=transit" class="nav-btn" target="_blank">📍 大眾運輸導航至輕井澤飯店</a>
+        <h3>🚲 輕井澤分區景點建議</h3>
+        <ul class="spot-list">
+            <li><span class="highlight">舊輕井澤：</span>舊輕井澤銀座通、雲場池 (適合腳踏車)</li>
+            <li><span class="highlight">中輕井澤：</span>星野榆樹街小鎮、石之教堂、高原教會</li>
+            <li><span class="highlight">車站南口：</span>輕井澤王子 Outlet</li>
+        </ul>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=GLAMDAY+STYLE+Karuizawa&travelmode=transit" class="nav-btn" target="_blank">📍 導航至輕井澤飯店 (Glamday Style)</a>
     </div>
 </div>
 
 <div id="day3" class="day-content">
     <div class="section-card">
         <h2>📅 4/21 輕井澤漫遊</h2>
-        <p>🌲 <strong>當地景點交通指南：</strong></p>
-        <ul style="font-size: 20px;">
-            <li><strong>雲場池、舊輕井澤：</strong>租「電動腳踏車」或搭乘「町內循環巴士(內回)」。</li>
-            <li><strong>白絲瀑布：</strong>搭乘「草輕交通巴士」(約23分)。</li>
-            <li><strong>星野度假村(榆樹街小鎮)：</strong>搭乘「西武觀光巴士」(約19分)。</li>
+        <h3>🚌 當地推薦交通方式</h3>
+        <ul class="spot-list">
+            <li><span class="highlight">電動腳踏車：</span>遊覽雲場池、舊輕井澤首選 (約 1,000-1,500円/日)</li>
+            <li><span class="highlight">西武觀光巴士：</span>往星野度假村 (榆樹街小鎮)</li>
+            <li><span class="highlight">草輕交通巴士：</span>往白絲瀑布</li>
         </ul>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=GLAMDAY+STYLE+Karuizawa&travelmode=transit" class="nav-btn" target="_blank">📍 導航回飯店</a>
+        <hr>
+        <h3>🌲 推薦行程</h3>
+        <p>上午：白絲瀑布 ➔ 下午：星野度假村 (榆樹街小鎮、教堂) ➔ 傍晚：返回舊輕井澤區</p>
     </div>
 </div>
 
 <div id="day4" class="day-content">
     <div class="section-card">
-        <h2>📅 4/22 返回東京</h2>
+        <h2>📅 4/22 輕井澤 ➔ 東京</h2>
+        <p>🚆 <strong>新幹線購票卡 (點擊翻轉)</strong></p>
         
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">11:17 ➔ 12:20</div>
+                    <div class="fc-train">白鷹 558號 (Hakutaka)</div>
+                    <div class="fc-track">輕井澤 [1/2月台] ➔ 東京 [20月台]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 はくたか 558号 (11:17発)</div>
+                    <div class="fc-detail">📍 軽井沢 ➔ 東京 (TOKYO)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">12:00 ➔ 13:12</div>
+                    <div class="fc-train">淺間 614號 (Asama)</div>
+                    <div class="fc-track">輕井澤 [1/2月台] ➔ 東京 [23月台]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 614号 (12:00発)</div>
+                    <div class="fc-detail">📍 軽井沢 ➔ 東京 (TOKYO)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">13:00 ➔ 14:12</div>
+                    <div class="fc-train">淺間 616號 (Asama)</div>
+                    <div class="fc-track">輕井澤 [1/2月台] ➔ 東京 [22月台]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 616号 (13:00発)</div>
+                    <div class="fc-detail">📍 軽井沢 ➔ 東京 (TOKYO)</div>
+                </div>
+            </div>
+        </div>
+
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="fc-time">13:57 ➔ 15:12</div>
                     <div class="fc-train">淺間 618號 (Asama)</div>
-                    <div class="fc-track">輕井澤 1·2月台 ➔ 東京 20月台</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">輕井澤 [1/2月台] ➔ 東京 [20月台]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 浅間 618号 / 新幹線あさま (13:57発)</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 618号 (13:57発)</div>
                     <div class="fc-detail">📍 軽井沢 ➔ 東京 (TOKYO)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
                 </div>
             </div>
         </div>
@@ -282,47 +375,56 @@
                 <div class="flip-card-front">
                     <div class="fc-time">15:00 ➔ 16:12</div>
                     <div class="fc-train">淺間 620號 (Asama)</div>
-                    <div class="fc-track">輕井澤 1·2月台 ➔ 東京 21月台</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">輕井澤 [1/2月台] ➔ 東京 [21月台]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 浅間 620号 / 新幹線あさま (15:00発)</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 浅間 620号 (15:00発)</div>
                     <div class="fc-detail">📍 軽井沢 ➔ 東京 (TOKYO)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
                 </div>
             </div>
         </div>
-        
-        <textarea class="note-area"></textarea>
     </div>
+    
     <div class="section-card">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=Daiwa+Roynet+Hotel+Ginza&travelmode=transit" class="nav-btn" target="_blank">📍 大眾運輸導航回銀座飯店</a>
+        <a href="https://maps.app.goo.gl/CNY5AfvsE3fqQD4aA" class="nav-btn" target="_blank">📍 步行導航回銀座大和飯店</a>
     </div>
 </div>
 
 <div id="day5" class="day-content">
     <div class="section-card">
-        <h2>📅 4/23 返回台灣</h2>
-        <p>✈️ CI 0105 (17:55 NRT ➔ 20:35 TPE)</p>
+        <h2>📅 4/23 東京 ➔ 機場</h2>
+        <p>🚆 <strong>N'EX 購票卡 (點擊翻轉)</strong></p>
         
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <div class="fc-time">12:03 ➔ 12:54</div>
+                    <div class="fc-train">成田快線 (N'EX) 23號</div>
+                    <div class="fc-track">東京 [總武線4] ➔ 成田 T2 [1月台]</div>
+                </div>
+                <div class="flip-card-back">
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 N'EX 23号 (12:03發)</div>
+                    <div class="fc-detail">📍 東京 ➔ 空港第２ビル</div>
+                </div>
+            </div>
+        </div>
+
         <div class="flip-card" onclick="this.classList.toggle('flipped')">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
                     <div class="fc-time">12:33 ➔ 13:23</div>
                     <div class="fc-train">成田快線 (N'EX) 25號</div>
-                    <div class="fc-track">東京 總武線4 ➔ 成田 1號線</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">東京 [總武線4] ➔ 成田 T2 [1月台]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 N'EX 25号 / 成田エクスプレス (12:33発)</div>
-                    <div class="fc-detail">📍 東京 ➔ 空港第２ビル (NRT T2)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 N'EX 25号 (12:33發)</div>
+                    <div class="fc-detail">📍 東京 ➔ 空港第２ビル</div>
                 </div>
             </div>
         </div>
@@ -332,85 +434,32 @@
                 <div class="flip-card-front">
                     <div class="fc-time">13:03 ➔ 13:53</div>
                     <div class="fc-train">成田快線 (N'EX) 27號</div>
-                    <div class="fc-track">東京 總武線4 ➔ 成田 1號線</div>
-                    <div class="fc-hint">👆 點擊翻轉給站務員看</div>
+                    <div class="fc-track">東京 [總武線4] ➔ 成田 T2 [1月台]</div>
                 </div>
                 <div class="flip-card-back">
-                    <div class="fc-jp-title">乗車券 ＋ 指定席券</div>
-                    <div class="fc-cn-title">(我要買：乘車券及指定席)</div>
-                    <hr class="fc-divider">
-                    <div class="fc-detail">🚆 N'EX 27号 / 成田エクスプレス (13:03発)</div>
-                    <div class="fc-detail">📍 東京 ➔ 空港第２ビル (NRT T2)</div>
-                    <div class="fc-detail">💺 普通車指定席</div>
+                    <div class="fc-jp-title">この列車の指定席切符を買いたいです。</div>
+                    <div class="fc-cn-title">(您好，我要購買這班車的指定席車票)</div>
+                    <div class="fc-detail">🚆 N'EX 27号 (13:03發)</div>
+                    <div class="fc-detail">📍 東京 ➔ 空港第２ビル</div>
                 </div>
             </div>
         </div>
-
-        <textarea class="note-area"></textarea>
     </div>
 </div>
 
 <div id="metro" class="day-content">
     <div class="section-card">
-        <h2>🚌 輕井澤公車直式圖</h2>
-        <button class="accordion" style="border-left-color: #A0522D;">草輕交通巴士 (往白絲瀑布)</button>
-        <div class="panel" style="border-left-color: #A0522D;">
-            <div class="station-item" style="background-color: #A0522D;">輕井澤站北口 (起點)</div>
-            <div class="station-item" style="background-color: #A0522D;">舊輕井澤</div>
-            <div class="station-item" style="background-color: #A0522D;">三笠</div>
-            <div class="station-item" style="background-color: #A0522D; font-weight:bold; color:var(--morandi-pink);">白糸の滝 (白絲瀑布)</div>
+        <h2>🚌 輕井澤巴士路線</h2>
+        <button class="accordion">西武觀光巴士 (往星野度假村)</button>
+        <div class="panel">
+            <div class="station-item">輕井澤站 (起點)</div>
+            <div class="station-item">舊輕井澤</div>
+            <div class="station-item highlight">星野溫泉 (榆樹街小鎮)</div>
         </div>
-
-        <button class="accordion" style="border-left-color: #4682B4;">西武觀光巴士 (往星野)</button>
-        <div class="panel" style="border-left-color: #4682B4;">
-            <div class="station-item" style="background-color: #4682B4;">輕井澤站北口 (起點)</div>
-            <div class="station-item" style="background-color: #4682B4;">舊輕井澤</div>
-            <div class="station-item" style="background-color: #4682B4;">塩沢湖</div>
-            <div class="station-item" style="background-color: #4682B4; font-weight:bold; color:var(--morandi-pink);">星野溫泉トンボの湯 (榆樹街)</div>
-        </div>
-
-        <button class="accordion" style="border-left-color: #8B4513;">町內循環巴士 (東/南迴線)</button>
-        <div class="panel" style="border-left-color: #8B4513;">
-            <div class="station-item" style="background-color: #8B4513;">輕井澤站 (起點)</div>
-            <div class="station-item" style="background-color: #8B4513;">新道</div>
-            <div class="station-item" style="background-color: #8B4513;">舊輕井澤</div>
-            <div class="station-item" style="background-color: #8B4513; font-weight:bold; color:var(--morandi-pink);">六本辻・雲場池</div>
-        </div>
-    </div>
-
-    <div class="section-card">
-        <h2>🚇 東京地鐵/JR 直式圖</h2>
-        <button class="accordion" style="border-left-color: #F39700;">G 銀座線 (Ginza Line)</button>
-        <div class="panel" style="border-left-color: #F39700;">
-            <div class="station-item" style="background-color: #F39700;">G01 澀谷</div>
-            <div class="station-item" style="background-color: #F39700;">G08 新橋</div>
-            <div class="station-item" style="background-color: #F39700; font-weight:bold;">G09 銀座 (近飯店)</div>
-            <div class="station-item" style="background-color: #F39700; font-weight:bold;">G10 京橋 (近飯店)</div>
-            <div class="station-item" style="background-color: #F39700;">G16 上野</div>
-            <div class="station-item" style="background-color: #F39700;">G19 淺草</div>
-        </div>
-
-        <button class="accordion" style="border-left-color: #E60012;">M 丸之內線 (Marunouchi)</button>
-        <div class="panel" style="border-left-color: #E60012;">
-            <div class="station-item" style="background-color: #E60012;">M08 新宿</div>
-            <div class="station-item" style="background-color: #E60012;">M16 銀座</div>
-            <div class="station-item" style="background-color: #E60012; font-weight:bold;">M17 東京 (轉新幹線)</div>
-        </div>
-
-        <button class="accordion" style="border-left-color: #9CAEB7;">H 日比谷線 (Hibiya)</button>
-        <div class="panel" style="border-left-color: #9CAEB7;">
-            <div class="station-item" style="background-color: #9CAEB7;">H04 六本木</div>
-            <div class="station-item" style="background-color: #9CAEB7;">H09 銀座</div>
-            <div class="station-item" style="background-color: #9CAEB7; font-weight:bold;">H10 東銀座 (近飯店)</div>
-            <div class="station-item" style="background-color: #9CAEB7;">H11 築地</div>
-        </div>
-
-        <button class="accordion" style="border-left-color: #81C23A;">JR 山手線 (Yamanote)</button>
-        <div class="panel" style="border-left-color: #81C23A;">
-            <div class="station-item" style="background-color: #81C23A;">新宿 / 澀谷 / 品川</div>
-            <div class="station-item" style="background-color: #81C23A;">有樂町 (近飯店區)</div>
-            <div class="station-item" style="background-color: #81C23A; font-weight:bold;">東京 (轉新幹線/N'EX)</div>
-            <div class="station-item" style="background-color: #81C23A;">上野 / 池袋</div>
+        <button class="accordion">草輕交通巴士 (往白絲瀑布)</button>
+        <div class="panel">
+            <div class="station-item">輕井澤站 (起點)</div>
+            <div class="station-item highlight">白糸の滝 (白絲瀑布)</div>
         </div>
     </div>
 </div>
@@ -425,25 +474,6 @@
         btn.classList.add("active");
         window.scrollTo({top: 0, behavior: 'smooth'});
     }
-
-    var acc = document.getElementsByClassName("accordion");
-    for (var i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    document.querySelectorAll('textarea').forEach((el, index) => {
-        const saved = localStorage.getItem('tokyo-note-' + index);
-        if (saved) el.value = saved;
-        el.addEventListener('input', () => localStorage.setItem('tokyo-note-' + index, el.value));
-    });
 </script>
 
 </body>
