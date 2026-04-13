@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julie's 東京獨旅 - 交通路線圖</title>
+    <style>
+        :root {
+            --morandi-pink: #D8A7B1;
+            --morandi-bg: #F4EEED;
+            --morandi-blue: #B5C0D0;
+            --morandi-green: #8E9775;
+            --text-dark: #333333;
+            --white: #ffffff;
+            --font-size-base: 22px; 
+        }
+
+        body {
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            background-color: var(--morandi-bg); color: var(--text-dark);
+            margin: 0; padding: 15px; font-size: var(--font-size-base); line-height: 1.6;
+        }
+
+        header {
+            text-align: center; padding: 20px 0; background: var(--white);
+            border-radius: 20px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        h1 { color: var(--morandi-pink); margin: 0; font-size: 1.6rem; }
+
+        .tabs {
+            display: flex; overflow-x: auto; gap: 10px; margin-bottom: 20px;
+            padding-bottom: 5px; scrollbar-width: none; 
+        }
+        .tabs::-webkit-scrollbar { display: none; }
+
+        .tab-btn {
+            background-color: var(--white); border: 3px solid var(--morandi-pink);
+            color: var(--morandi-pink); padding: 10px 18px; border-radius: 50px;
+            font-size: 20px; font-weight: bold; cursor: pointer; white-space: nowrap;
+            text-decoration: none; display: inline-block;
+        }
+        .tab-btn.active { background-color: var(--morandi-pink); color: var(--white); }
+
+        .section-card {
+            background: var(--white); padding: 20px; border-radius: 20px;
+            margin-bottom: 20px; border-top: 8px solid var(--morandi-pink);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); animation: fadeIn 0.4s;
+        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
+
+        /* 手風琴樣式 */
+        .accordion {
+            background-color: #f9f9f9; color: var(--text-dark); cursor: pointer; padding: 18px; width: 100%;
+            text-align: left; border: none; outline: none; transition: 0.4s; font-size: 20px; font-weight: bold;
+            border-radius: 10px; margin-bottom: 8px; border-left: 10px solid #ccc; position: relative;
+        }
+        .accordion:after { content: '\002B'; float: right; font-weight: bold; }
+        .accordion.active:after { content: "\2212"; }
+
+        .panel { padding: 0 15px; background-color: white; display: none; overflow: hidden; border-left: 4px solid #ccc; margin-left: 10px; margin-bottom: 15px; }
+        
+        .station-item {
+            position: relative; padding: 12px 0 12px 25px; border-bottom: 1px dashed #eee; font-size: 19px;
+        }
+        .station-item.hotel-station { color: var(--morandi-pink); font-weight: bold; }
+        .station-item::before {
+            content: ''; position: absolute; left: -24px; top: 20px; width: 10px; height: 10px;
+            border-radius: 50%; background-color: white; border: 3px solid #ccc;
+        }
+
+        .category-title { font-size: 18px; color: #888; margin: 20px 0 10px 5px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌸 Julie's 東京獨旅</h1>
+</header>
+
+<div class="tabs">
+    <a href="index.html" class="tab-btn">4/19</a>
+    <a href="day2.html" class="tab-btn">4/20</a>
+    <a href="day3.html" class="tab-btn">4/21</a>
+    <a href="day4.html" class="tab-btn">4/22</a>
+    <a href="day5.html" class="tab-btn">4/23</a>
+    <a href="metro.html" class="tab-btn active">🗺️ 交通</a>
+</div>
+
+<div class="section-card">
+    <h2>🗺️ 交通路線總覽</h2>
+
+    <div class="category-title">Karuizawa Bus / 輕井澤巴士</div>
+    
+    <button class="accordion" style="border-left-color: #A0522D;">草輕交通巴士 (往白絲瀑布)</button>
+    <div class="panel" style="border-left-color: #A0522D;">
+        <div class="station-item">輕井澤站北口 (起點)</div>
+        <div class="station-item">舊輕井澤</div>
+        <div class="station-item">三笠</div>
+        <div class="station-item hotel-station">白糸の滝 (白絲瀑布)</div>
+    </div>
+
+    <button class="accordion" style="border-left-color: #4682B4;">西武觀光巴士 (往星野區)</button>
+    <div class="panel" style="border-left-color: #4682B4;">
+        <div class="station-item">輕井澤站北口 (起點)</div>
+        <div class="station-item">舊輕井澤</div>
+        <div class="station-item">塩沢湖</div>
+        <div class="station-item hotel-station">星野溫泉 (榆樹街小鎮)</div>
+    </div>
+
+    <button class="accordion" style="border-left-color: #8B4513;">町內循環巴士 (東/南迴線)</button>
+    <div class="panel" style="border-left-color: #8B4513;">
+        <div class="station-item">輕井澤站 (起點)</div>
+        <div class="station-item">新道</div>
+        <div class="station-item">舊輕井澤</div>
+        <div class="station-item hotel-station">六本辻・雲場池</div>
+    </div>
+
+    <div class="category-title">Tokyo Metro & JR / 東京地鐵核心站</div>
+
+    <button class="accordion" style="border-left-color: #F39700;">G 銀座線 (Ginza Line)</button>
+    <div class="panel" style="border-left-color: #F39700;">
+        <div class="station-item">G01 澀谷</div>
+        <div class="station-item">G08 新橋</div>
+        <div class="station-item hotel-station">G09 銀座</div>
+        <div class="station-item hotel-station">G10 京橋 (飯店近)</div>
+        <div class="station-item">G16 上野</div>
+        <div class="station-item">G19 淺草</div>
+    </div>
+
+    <button class="accordion" style="border-left-color: #E60012;">M 丸之內線 (Marunouchi)</button>
+    <div class="panel" style="border-left-color: #E60012;">
+        <div class="station-item">M08 新宿</div>
+        <div class="station-item hotel-station">M16 銀座</div>
+        <div class="station-item hotel-station">M17 東京 (轉新幹線)</div>
+        <div class="station-item">M25 池袋</div>
+    </div>
+
+    <button class="accordion" style="border-left-color: #D7C252;">Y 有樂町線 (Yurakucho)</button>
+    <div class="panel" style="border-left-color: #D7C252;">
+        <div class="station-item">Y09 池袋</div>
+        <div class="station-item">Y18 有樂町</div>
+        <div class="station-item hotel-station">Y19 銀座一丁目 (最近飯店)</div>
+        <div class="station-item">Y24 新木場 (往迪士尼)</div>
+    </div>
+
+    <button class="accordion" style="border-left-color: #9CAEB7;">H 日比谷線 (Hibiya)</button>
+    <div class="panel" style="border-left-color: #9CAEB7;">
+        <div class="station-item">H04 六本木</div>
+        <div class="station-item hotel-station">H09 銀座</div>
+        <div class="station-item hotel-station">H10 東銀座 (近飯店)</div>
+        <div class="station-item">H11 築地</div>
+        <div class="station-item">H18 上野</div>
+    </div>
+
+    <button class="accordion" style="border-left-color: #81C23A;">JR 山手線 (Yamanote)</button>
+    <div class="panel" style="border-left-color: #81C23A;">
+        <div class="station-item">澀谷 / 原宿 / 新宿</div>
+        <div class="station-item">池袋 / 上野</div>
+        <div class="station-item hotel-station">東京 (轉乘大站)</div>
+        <div class="station-item hotel-station">有樂町 (近銀座區)</div>
+        <div class="station-item">品川</div>
+    </div>
+
+    <p style="text-align:center; color:#999; font-size:16px; margin-top:20px;">*僅列出核心站點與鄰近飯店車站*</p>
+</div>
+
+<script>
+    // 手風琴邏輯
+    var acc = document.getElementsByClassName("accordion");
+    for (var i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
