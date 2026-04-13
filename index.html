@@ -28,7 +28,6 @@
 
         h1 { color: var(--morandi-pink); margin: 0; font-size: 1.6rem; }
 
-        /* 導覽頁籤 (連結至不同檔案) */
         .tabs {
             display: flex; overflow-x: auto; gap: 10px; margin-bottom: 20px;
             padding-bottom: 5px; scrollbar-width: none; 
@@ -58,12 +57,12 @@
             padding: 18px; border-radius: 15px; margin: 12px 0; font-weight: bold; text-align: center;
             box-shadow: 0 4px 0 #6D7456;
         }
+        .nav-btn.hotel-main { background-color: var(--morandi-pink); box-shadow: 0 4px 0 #B0858E; margin-bottom: 20px; }
         .nav-btn:active { transform: translateY(4px); box-shadow: none; }
         .dist-tag { display: block; color: #ffffff; font-size: 18px; margin-top: 5px; font-weight: normal; background: rgba(0,0,0,0.15); border-radius: 5px; padding: 2px; }
 
-        /* 3D 翻轉卡片 */
         .flip-card {
-            background-color: transparent; width: 100%; height: 240px;
+            background-color: transparent; width: 100%; height: 260px;
             perspective: 1000px; margin-bottom: 15px; cursor: pointer;
         }
         .flip-card-inner {
@@ -82,7 +81,7 @@
         .fc-train { font-size: 20px; font-weight: bold; margin: 5px 0; }
         .fc-track { font-size: 18px; color: #666; background: #eee; border-radius: 5px; padding: 4px; display: inline-block;}
         
-        .fc-jp-title { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 10px; line-height: 1.3; }
+        .fc-jp-title { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 8px; line-height: 1.3; }
         .fc-cn-title { font-size: 15px; opacity: 0.9; text-align: center; margin-bottom: 10px; }
         .fc-detail { font-size: 17px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 6px 10px; margin-bottom: 6px; }
 
@@ -106,7 +105,7 @@
 
 <div class="section-card">
     <h2>📅 4/19 Day 1 抵達東京</h2>
-    <p>✈️ 航班：CI 0104 (12:15 TPE ➔ 16:35 NRT)</p>
+    <p>✈️ CI 0104 (12:15 TPE ➔ 16:35 NRT)</p>
     <p>🚆 <strong>N'EX 購票小卡 (點擊翻轉給櫃檯)</strong></p>
     
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -118,8 +117,8 @@
             </div>
             <div class="flip-card-back">
                 <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
-                <div class="fc-cn-title">(我要購買這班車的乘車券及指定席)</div>
-                <div class="fc-detail">🚆 N'EX 46号 (18:48發)</div>
+                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
+                <div class="fc-detail">🚆 N'EX 46号 (18:48発)</div>
                 <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
             </div>
         </div>
@@ -134,7 +133,7 @@
             </div>
             <div class="flip-card-back">
                 <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
-                <div class="fc-cn-title">(我要購買這班車的乘車券及指定席)</div>
+                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
                 <div class="fc-detail">🚆 N'EX 48号 (19:20發)</div>
                 <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
             </div>
@@ -150,7 +149,7 @@
             </div>
             <div class="flip-card-back">
                 <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
-                <div class="fc-cn-title">(我要購買這班車的乘車券及指定席)</div>
+                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
                 <div class="fc-detail">🚆 N'EX 50号 (19:53發)</div>
                 <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
             </div>
@@ -159,9 +158,11 @@
 </div>
 
 <div class="section-card">
-    <h3>🏨 飯店導航：銀座大和飯店</h3>
-    <p style="font-size: 16px; color: #666;">點選下方車站查看前往飯店的「步行」路線：</p>
+    <h3>🏨 住宿：銀座大和飯店</h3>
     
+    <a href="https://maps.app.goo.gl/hSD8TWNGy48jZX1Q6" class="nav-btn hotel-main" target="_blank">📍 直接導航至飯店</a>
+
+    <p style="font-size: 16px; color: #666; margin-top: 10px;">鄰近車站步行導航：</p>
     <a href="https://maps.app.goo.gl/CNY5AfvsE3fqQD4aA" class="nav-btn" target="_blank">🚶 銀座一丁目站 (有樂町線)<span class="dist-tag">步行 50m / 1分鐘</span></a>
     <a href="https://maps.app.goo.gl/x9gV9RtY2i6v2Hep7" class="nav-btn" target="_blank">🚶 京橋站 (銀座線)<span class="dist-tag">步行 350m / 5分鐘</span></a>
     <a href="https://maps.app.goo.gl/2tXzb9rDHaRs3Xbg9" class="nav-btn" target="_blank">🚶 東銀座站 (日比谷/淺草線)<span class="dist-tag">步行 400m / 6分鐘</span></a>
@@ -170,12 +171,11 @@
 </div>
 
 <div class="section-card">
-    <p>✍️ <strong>Day 1 行程隨手筆記：</strong></p>
-    <textarea class="note-area" placeholder="在此輸入領行李或換匯心得..."></textarea>
+    <p>✍️ <strong>Day 1 備註：</strong></p>
+    <textarea class="note-area" placeholder="筆記區..."></textarea>
 </div>
 
 <script>
-    // 自動儲存筆記
     const textarea = document.querySelector('.note-area');
     const saved = localStorage.getItem('day1-note');
     if (saved) textarea.value = saved;
