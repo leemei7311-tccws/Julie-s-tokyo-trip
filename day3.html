@@ -52,22 +52,7 @@
         h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 0; font-size: 1.25rem; }
         h3 { color: var(--morandi-green); font-size: 1.1rem; margin-top: 12px; }
 
-        /* --- 導航按鈕樣式 --- */
-        .nav-btn {
-            display: block; background-color: var(--morandi-green); color: white; text-decoration: none;
-            padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: bold; text-align: center;
-            box-shadow: 0 4px 0 #6D7456; font-size: 19px;
-        }
-        .nav-btn.hotel-main { background-color: var(--morandi-pink); box-shadow: 0 4px 0 #B0858E; margin-bottom: 20px; }
-        .nav-btn:active { transform: translateY(4px); box-shadow: none; }
-
-        /* --- 巴士清單樣式 --- */
-        .info-box { background: #fdfafb; border-left: 5px solid var(--morandi-pink); padding: 12px; font-size: 16px; margin: 12px 0; line-height: 1.5; }
-        .bus-list { list-style: none; padding: 0; margin: 10px 0; }
-        .bus-item { margin-bottom: 15px; background: #fafafa; padding: 10px; border-radius: 10px; border: 1px solid #eee; }
-        .bus-name { color: var(--morandi-green); font-weight: bold; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 8px; display: block; }
-        .bus-detail { font-size: 16px; color: #666; margin-left: 5px; display: block; margin-bottom: 4px; }
-        .highlight { color: var(--morandi-pink); font-weight: bold; }
+        .category-title { font-size: 16px; color: #888; margin: 20px 0 10px 5px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
 
         /* --- 手風琴樣式 --- */
         .accordion {
@@ -80,18 +65,20 @@
         .accordion:after { content: '\002B'; float: right; font-weight: bold; font-size: 22px; }
         .accordion.active:after { content: "\2212"; }
         .panel { padding: 0 15px; background-color: white; display: none; overflow: hidden; border-left: 4px solid #ccc; margin-left: 12px; margin-bottom: 15px; }
-        
-        .station-item {
-            position: relative; padding: 12px 0 12px 28px; border-bottom: 1px dashed #eee; font-size: 18px;
-        }
-        .station-item.hotel-station { color: var(--morandi-pink); font-weight: bold; }
-        .station-item::before {
-            content: ''; position: absolute; left: -22px; top: 18px; width: 10px; height: 10px;
-            border-radius: 50%; background-color: white; border: 3px solid #ccc;
-        }
-        .category-title { font-size: 16px; color: #888; margin: 20px 0 10px 5px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;}
 
-        /* --- 備註區樣式 --- */
+        /* --- 時刻表樣式 --- */
+        .time-info-box { background: #fdfafb; border: 1px solid var(--morandi-blue); padding: 10px; border-radius: 8px; margin: 10px 0; font-size: 16px; }
+        .time-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0; }
+        .time-tag { background: var(--morandi-bg); color: var(--text-dark); padding: 5px; border-radius: 5px; text-align: center; font-size: 15px; font-weight: bold; border-bottom: 2px solid var(--morandi-blue); }
+        .time-title { font-size: 16px; font-weight: bold; color: var(--morandi-blue); margin-top: 10px; display: block; border-left: 4px solid var(--morandi-blue); padding-left: 8px; }
+
+        /* --- 站點清單樣式 --- */
+        .station-item { position: relative; padding: 10px 0 10px 28px; border-bottom: 1px dashed #eee; font-size: 17px; }
+        .station-item.highlight-station { color: var(--morandi-pink); font-weight: bold; }
+        .station-item::before { content: ''; position: absolute; left: -22px; top: 16px; width: 8px; height: 8px; border-radius: 50%; background-color: white; border: 3px solid #ccc; }
+
+        .nav-btn { display: block; background-color: var(--morandi-green); color: white; text-decoration: none; padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: bold; text-align: center; box-shadow: 0 4px 0 #6D7456; font-size: 19px; }
+        .nav-btn.hotel-main { background-color: var(--morandi-pink); box-shadow: 0 4px 0 #B0858E; margin-bottom: 20px; }
         .note-area { width: 100%; min-height: 100px; border: 2px dashed var(--morandi-blue); background-color: #fafafa; border-radius: 12px; padding: 12px; font-size: 18px; box-sizing: border-box; resize: vertical; margin-top: 10px; }
     </style>
 </head>
@@ -117,26 +104,60 @@
     
     <button class="accordion" style="border-left-color: #A0522D;">草輕交通巴士 (往白絲瀑布)</button>
     <div class="panel">
+        <div class="time-info-box">
+            首班 <b>08:40</b> / 末班 <b>16:30</b><br>
+            頻率：約 20-50 分鐘一班
+        </div>
+        <span class="time-title">詳細時刻 (輕井澤站發)</span>
+        <div class="time-grid">
+            <div class="time-tag">08:40</div><div class="time-tag">09:00</div><div class="time-tag">09:30</div><div class="time-tag">09:40</div>
+            <div class="time-tag">10:20</div><div class="time-tag">10:30</div><div class="time-tag">11:10</div><div class="time-tag">12:00</div>
+            <div class="time-tag">12:20</div><div class="time-tag">12:40</div><div class="time-tag">13:00</div><div class="time-tag">13:20</div>
+            <div class="time-tag">13:40</div><div class="time-tag">14:20</div><div class="time-tag">14:40</div><div class="time-tag">15:10</div>
+            <div class="time-tag">15:40</div><div class="time-tag">16:30</div>
+        </div>
+        <span class="time-title">行經路線</span>
         <div class="station-item">輕井澤站北口 (起點)</div>
         <div class="station-item">舊輕井澤</div>
         <div class="station-item">三笠</div>
-        <div class="station-item hotel-station">白糸の滝 (白絲瀑布)</div>
+        <div class="station-item highlight-station">白糸の滝 (白絲瀑布)</div>
     </div>
 
     <button class="accordion" style="border-left-color: #4682B4;">西武觀光巴士 (往星野區)</button>
     <div class="panel">
+        <div class="time-info-box">
+            首班 <b>08:30</b> / 末班 <b>18:25</b><br>
+            ⚠️ 14:00 至 15:55 之間無車次
+        </div>
+        <span class="time-title">詳細時刻 (平日發車)</span>
+        <div class="time-grid">
+            <div class="time-tag">08:30</div><div class="time-tag">09:10</div><div class="time-tag">10:00</div><div class="time-tag">11:00</div>
+            <div class="time-tag">11:45</div><div class="time-tag">12:25</div><div class="time-tag">13:00</div><div class="time-tag">14:00</div>
+            <div class="time-tag">15:55</div><div class="time-tag">16:55</div><div class="time-tag">17:30</div><div class="time-tag">17:50</div>
+            <div class="time-tag">18:25</div>
+        </div>
+        <span class="time-title">行經路線</span>
         <div class="station-item">輕井澤站北口 (起點)</div>
         <div class="station-item">舊輕井澤</div>
         <div class="station-item">塩沢湖</div>
-        <div class="station-item hotel-station">星野溫泉 (榆樹街小鎮)</div>
+        <div class="station-item highlight-station">星野溫泉 (榆樹街小鎮)</div>
     </div>
 
-    <button class="accordion" style="border-left-color: #8B4513;">町內循環巴士 (東/南迴線)</button>
+    <button class="accordion" style="border-left-color: #8B4513;">町內循環巴士 (內迴線)</button>
     <div class="panel">
+        <div class="time-info-box">
+            班次極少，請務必準時候車
+        </div>
+        <span class="time-title">發車時刻 (輕井澤站發)</span>
+        <div class="time-grid">
+            <div class="time-tag">09:15</div><div class="time-tag">11:35</div><div class="time-tag">12:50</div><div class="time-tag">14:15</div>
+            <div class="time-tag">18:15</div>
+        </div>
+        <span class="time-title">行經路線</span>
         <div class="station-item">輕井澤站 (起點)</div>
         <div class="station-item">新道</div>
         <div class="station-item">舊輕井澤</div>
-        <div class="station-item hotel-station">六本辻・雲場池</div>
+        <div class="station-item highlight-station">六本辻・雲場池</div>
     </div>
 </div>
 
@@ -146,52 +167,11 @@
 </div>
 
 <div class="section-card">
-    <h3>🚲 輕井澤重點交通方式</h3>
-    <div class="info-box">
-        <span class="highlight">舊輕井澤區：</span>妳的飯店在此區！周邊有舊輕銀座通、雲場池。建議租借「電動腳踏車」慢遊。
-    </div>
-    
-    <p style="font-size: 15px; color: #888; margin-bottom: 10px;">💡 以下巴士皆在「車站北口」搭乘：</p>
-
-    <div class="bus-list">
-        <div class="bus-item">
-            <span class="bus-name">1. 草輕交通巴士</span>
-            <span class="bus-detail">🔹 舊輕井澤銀座通：於「旧軽井沢」下車 (4分)</span>
-            <span class="bus-detail">🔹 舊三笠飯店：於「三笠」下車 (8分) <i style="font-size:12px;">*暫停開放</i></span>
-            <span class="bus-detail">🔹 白絲瀑布：於「白糸の滝」下車 (23分)</span>
-        </div>
-
-        <div class="bus-item">
-            <span class="bus-name">2. 西武觀光巴士</span>
-            <span class="bus-detail">🔹 舊輕井澤銀座通：於「旧軽井沢」下車 (4分)</span>
-            <span class="bus-detail">🔹 榆樹街小鎮：於「星野温泉トンボの湯」下車 (19分)</span>
-            <span class="bus-detail">🔹 輕井澤Taliesin：於「塩沢湖」下車 (15分)</span>
-        </div>
-
-        <div class="bus-item">
-            <span class="bus-name">3. 町內循環巴士 (內/外回)</span>
-            <span class="bus-detail">🔹 雲場池：於「六本辻・雲場池」下車 (內回 6分)</span>
-            <span class="bus-detail">🔹 舊輕井澤銀座通：於「旧軽井沢」下車 (內回 4分)</span>
-            <span class="bus-detail">🔹 中輕井澤：於「中軽井沢駅」下車 (內回 18分)</span>
-            <span class="bus-detail">🔹 輕井澤Taliesin：於「風越公園」下車 (外回 24分)</span>
-        </div>
-    </div>
-</div>
-
-<div class="section-card">
-    <h3>📍 輕井澤車站出口指引</h3>
-    
-    <p class="highlight" style="margin-bottom: 5px;">輕井澤車站南口區：</p>
-    <p style="font-size: 16px; margin-top: 0; color: #555;">出去後有王子購物廣場。</p>
-    <a href="https://maps.google.com/?cid=16774753773592206962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" class="nav-btn" target="_blank">🛒 南口：王子購物廣場</a>
-
-    <p class="highlight" style="margin-bottom: 5px; margin-top: 20px;">輕井澤車站北口區：</p>
-    <p style="font-size: 16px; margin-top: 0; color: #555;">出去後有巴士站。</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJ7zIMA33THWARbD71G-w0BE4" class="nav-btn" target="_blank">🚌 北口：巴士站</a>
-    
-    <p class="highlight" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px;">🔍 更多景點導航：</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJ5WIofs_THWARLww1bUcjCYc" class="nav-btn" target="_blank">🌲 雲場池 (可騎自行車前往)</a>
-    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJhQBnbUvSHWAR2L0NAqgrqOI" class="nav-btn" target="_blank">🛍️ 舊輕井澤銀座通(可騎自行車前往)</a>
+    <h3>📍 輕井澤重點導航</h3>
+    <a href="https://maps.google.com/?cid=16774753773592206962&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ" class="nav-btn" target="_blank">🛒 王子購物廣場</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJ7zIMA33THWARbD71G-w0BE4" class="nav-btn" target="_blank">🚌 北口巴士站</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJ5WIofs_THWARLww1bUcjCYc" class="nav-btn" target="_blank">🌲 雲場池</a>
+    <a href="https://www.google.com/maps/search/?api=1&query=Google&query_place_id=ChIJhQBnbUvSHWAR2L0NAqgrqOI" class="nav-btn" target="_blank">🛍️ 舊輕井澤銀座通</a>
 </div>
 
 <div class="section-card">
@@ -200,21 +180,21 @@
 </div>
 
 <script>
-    // --- 手風琴選單展開/收合邏輯 ---
-    const accordions = document.querySelectorAll('.accordion');
-    accordions.forEach(acc => {
-        acc.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const panel = this.nextElementSibling;
+    // 手風琴邏輯
+    const acc = document.getElementsByClassName("accordion");
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
             if (panel.style.display === "block") {
                 panel.style.display = "none";
             } else {
                 panel.style.display = "block";
             }
         });
-    });
+    }
 
-    // --- 備註區自動儲存邏輯 ---
+    // 備註儲存
     const textarea = document.querySelector('.note-area');
     const saved = localStorage.getItem('day3-note');
     if (saved) textarea.value = saved;
