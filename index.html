@@ -75,8 +75,7 @@
         .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
         .flip-card-front, .flip-card-back {
             position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden;
-            border-radius: 15px; padding: 15px 10px; /* 縮小左右內邊距釋放寬度 */
-            box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 15px; padding: 15px 10px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         .flip-card-front { background-color: #fdfafb; border: 2px solid var(--morandi-pink); color: var(--text-dark); }
         .flip-card-back { background-color: var(--morandi-pink); color: white; transform: rotateY(180deg); text-align: left; padding: 15px; }
@@ -88,6 +87,13 @@
         .fc-jp-title { font-size: 18px; font-weight: bold; text-align: center; margin-bottom: 10px; line-height: 1.4; word-break: break-all; }
         .fc-cn-title { font-size: 14px; opacity: 0.9; text-align: center; margin-bottom: 12px; }
         .fc-detail { font-size: 16px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 8px; margin-bottom: 6px; line-height: 1.3; }
+
+        /* --- 搭車攻略步驟樣式 --- */
+        .step-container { margin-bottom: 20px; padding: 15px; background-color: #fcfcfc; border-radius: 15px; border-left: 6px solid var(--morandi-blue); }
+        .step-title { font-size: 18px; font-weight: bold; color: var(--text-dark); margin-top: 0; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .step-num { background: var(--morandi-blue); color: white; border-radius: 50%; min-width: 28px; height: 28px; display: inline-flex; justify-content: center; align-items: center; font-size: 16px; }
+        .step-desc { font-size: 16px; color: #555; margin-bottom: 10px; line-height: 1.5; }
+        .step-img { width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 
         .note-area { width: 100%; min-height: 100px; border: 2px dashed var(--morandi-blue); background-color: #fafafa; border-radius: 12px; padding: 12px; font-size: 18px; box-sizing: border-box; resize: vertical; margin-top: 10px; }
     </style>
@@ -109,9 +115,96 @@
 
 <div class="section-card">
     <h2>📅 4/19 Day 1 抵達東京</h2>
-    <p>✈️ CI 0104 (12:15 TPE ➔ 16:35 NRT)</p>
-    <p>🚆 <strong>N'EX 購票小卡 (點擊翻轉給櫃檯)</strong></p>
+    <p>✈️ 航班：CI 0104 (12:15 TPE ➔ 16:35 NRT)</p>
+
+    <h3 style="margin-top: 25px; margin-bottom: 15px; color: var(--morandi-blue); border-bottom: 2px dashed var(--morandi-blue); padding-bottom: 5px;">🗺️ 機場出關 ➔ 搭車攻略</h3>
     
+    <div class="step-container">
+        <div class="step-title"><span class="step-num">1</span> B1 尋找旅行服務中心</div>
+        <div class="step-desc">抵達機場 B1 樓層，可前往「JR東日本旅行服務中心」兌換 JR PASS 及劃位 N'EX 車票。</div>
+        <img src="1.jpg" alt="JR服務中心" class="step-img" onerror="this.style.display='none';">
+    </div>
+
+    <div class="step-container">
+        <div class="step-title"><span class="step-num">2</span> 或前往 JR 售票處</div>
+        <div class="step-desc">旁邊的「JR Ticket Office (售票處)」一樣可以兌換 JR PASS 及劃位喔！</div>
+        <img src="2.jpg" alt="JR售票處" class="step-img" onerror="this.style.display='none';">
+    </div>
+
+    <div class="step-container">
+        <div class="step-title"><span class="step-num">3</span> 準備前往 N'EX 月台</div>
+        <div class="step-desc">劃位後準備進站。請注意，照片左邊藍色指標的是「京成電鐵」。</div>
+        <img src="3.jpg" alt="左邊是京成電鐵" class="step-img" onerror="this.style.display='none';">
+    </div>
+
+    <div class="step-container">
+        <div class="step-title"><span class="step-num">4</span> 往右邊 JR 紅色閘門走</div>
+        <div class="step-desc">右邊紅色招牌才是「JR東日本鐵路」(成田機場第2・第3乘車處)，請<strong>往右邊走</strong>進站。</div>
+        <img src="4.jpg" alt="往右走紅色閘門" class="step-img" onerror="this.style.display='none';">
+    </div>
+
+    <div class="step-container">
+        <div class="step-title"><span class="step-num">5</span> 搭乘手扶梯下樓</div>
+        <div class="step-desc">進剪票口後，跟著 N'EX 成田特快的指標，搭乘手扶梯下樓前往月台。</div>
+        <img src="5.jpg" alt="下樓抵達月台" class="step-img" onerror="this.style.display='none';">
+    </div>
+
+    <div class="step-container">
+        <div class="step-title"><span class="step-num">6</span> 抵達成田特快月台</div>
+        <div class="step-desc">順利抵達月台！準備搭乘帥氣的 N'EX 前往東京市區囉！</div>
+        <img src="6.jpg" alt="成田特快列車" class="step-img" onerror="this.style.display='none';">
+    </div>
+
+    <h3 style="margin-top: 25px;">🚆 N'EX 購票小卡 (點擊翻轉給櫃檯)</h3>
+    
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="fc-time">17:19 ➔ 18:18</div>
+                <div class="fc-train">成田快線 (N'EX) 40號</div>
+                <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
+            </div>
+            <div class="flip-card-back">
+                <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
+                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
+                <div class="fc-detail">🚆 N'EX 40号 (17:19發)</div>
+                <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="fc-time">17:48 ➔ 18:48</div>
+                <div class="fc-train">成田快線 (N'EX) 42號</div>
+                <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
+            </div>
+            <div class="flip-card-back">
+                <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
+                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
+                <div class="fc-detail">🚆 N'EX 42号 (17:48發)</div>
+                <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">
+                <div class="fc-time">18:19 ➔ 19:20</div>
+                <div class="fc-train">成田快線 (N'EX) 44號</div>
+                <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
+            </div>
+            <div class="flip-card-back">
+                <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
+                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
+                <div class="fc-detail">🚆 N'EX 44号 (18:19發)</div>
+                <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
+            </div>
+        </div>
+    </div>
+
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="flip-card-front">
@@ -127,38 +220,6 @@
             </div>
         </div>
     </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <div class="fc-time">19:20 ➔ 20:13</div>
-                <div class="fc-train">成田快線 (N'EX) 48號</div>
-                <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
-            </div>
-            <div class="flip-card-back">
-                <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
-                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
-                <div class="fc-detail">🚆 N'EX 48号 (19:20發)</div>
-                <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-card-inner">
-            <div class="flip-card-front">
-                <div class="fc-time">19:53 ➔ 20:51</div>
-                <div class="fc-train">成田快線 (N'EX) 50號</div>
-                <div class="fc-track">成田 T2 [1月台] ➔ 東京 [總武線1]</div>
-            </div>
-            <div class="flip-card-back">
-                <div class="fc-jp-title">この列車の『乗車券』と『指定席券』をあわせて買いたいです。</div>
-                <div class="fc-cn-title">(我要同時購買這班車的乘車券及指定席)</div>
-                <div class="fc-detail">🚆 N'EX 50号 (19:53發)</div>
-                <div class="fc-detail">📍 空港第２ビル ➔ 東京 (TOKYO)</div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="section-card">
@@ -166,11 +227,11 @@
     <a href="https://maps.app.goo.gl/hSD8TWNGy48jZX1Q6" class="nav-btn hotel-main" target="_blank">📍 直接導航至飯店</a>
 
     <p style="font-size: 16px; color: #666; margin-top: 10px;">鄰近車站步行導航：</p>
-    <a href="https://maps.app.goo.gl/CNY5AfvsE3fqQD4aA" class="nav-btn" target="_blank">🚶 銀座一丁目站 (有樂町線)<span class="dist-tag">步行 50m / 1分鐘</span></a>
-    <a href="https://maps.app.goo.gl/x9gV9RtY2i6v2Hep7" class="nav-btn" target="_blank">🚶 京橋站 (銀座線)<span class="dist-tag">步行 350m / 5分鐘</span></a>
-    <a href="https://maps.app.goo.gl/2tXzb9rDHaRs3Xbg9" class="nav-btn" target="_blank">🚶 東銀座站 (日比谷/淺草線)<span class="dist-tag">步行 400m / 6分鐘</span></a>
-    <a href="https://maps.app.goo.gl/EWN52UdGQCMnpGQD8" class="nav-btn" target="_blank">🚶 銀座站 (丸之內/日比谷線)<span class="dist-tag">步行 600m / 8分鐘</span></a>
-    <a href="https://maps.app.goo.gl/BPWs6qaJsGci1ejr7" class="nav-btn" target="_blank">🚶 東京車站 (丸之內線)<span class="dist-tag">步行 800m / 12分鐘</span></a>
+    <a href="https://maps.app.goo.gl/CNY5AfvsE3fqQD4aA" class="nav-btn" target="_blank">🚶 銀座一丁目站 (有樂町線)<span class="dist-tag">步行 50m</span></a>
+    <a href="https://maps.app.goo.gl/x9gV9RtY2i6v2Hep7" class="nav-btn" target="_blank">🚶 京橋站 (銀座線)<span class="dist-tag">步行 350m</span></a>
+    <a href="https://maps.app.goo.gl/2tXzb9rDHaRs3Xbg9" class="nav-btn" target="_blank">🚶 東銀座站 (日比谷/淺草線)<span class="dist-tag">步行 400m</span></a>
+    <a href="https://maps.app.goo.gl/EWN52UdGQCMnpGQD8" class="nav-btn" target="_blank">🚶 銀座站 (丸之內/日比谷線)<span class="dist-tag">步行 600m</span></a>
+    <a href="https://maps.app.goo.gl/BPWs6qaJsGci1ejr7" class="nav-btn" target="_blank">🚶 東京車站 (丸之內線)<span class="dist-tag">步行 800m</span></a>
 </div>
 
 <div class="section-card">
