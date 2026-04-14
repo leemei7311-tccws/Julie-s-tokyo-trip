@@ -60,24 +60,49 @@
             padding: 16px; width: 100%; text-align: left; border: none; outline: none; 
             transition: 0.4s; font-size: 19px; font-weight: bold;
             border-radius: 10px; margin-bottom: 8px; border-left: 10px solid #ccc; 
-            position: relative;
+            position: relative; box-sizing: border-box;
         }
         .accordion:after { content: '\002B'; float: right; font-weight: bold; font-size: 22px; }
         .accordion.active:after { content: "\2212"; }
-        .panel { padding: 0 15px; background-color: white; display: none; overflow: hidden; border-left: 4px solid #ccc; margin-left: 12px; margin-bottom: 15px; }
+        
+        /* 手機端排版修正：減少 Panel 內縮 padding，騰出空間給 Grid */
+        .panel { padding: 0 10px; background-color: white; display: none; overflow: hidden; border-left: 4px solid #ccc; margin-left: 8px; margin-bottom: 15px; box-sizing: border-box; }
 
         /* --- 時刻表樣式 --- */
-        .time-info-box { background: #fdfafb; border: 1px solid var(--morandi-blue); padding: 10px; border-radius: 8px; margin: 10px 0; font-size: 16px; }
-        .time-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0; }
-        .time-tag { background: var(--morandi-bg); color: var(--text-dark); padding: 5px; border-radius: 5px; text-align: center; font-size: 15px; font-weight: bold; border-bottom: 2px solid var(--morandi-blue); }
-        .time-title { font-size: 16px; font-weight: bold; color: var(--morandi-blue); margin-top: 10px; display: block; border-left: 4px solid var(--morandi-blue); padding-left: 8px; }
+        .time-info-box { background: #fdfafb; border: 1px solid var(--morandi-blue); padding: 10px; border-radius: 8px; margin: 10px 0; font-size: 16px; box-sizing: border-box;}
+        
+        /* 手機端排版修正：使用 auto-fill 和 minmax 確保時間標籤不會被擋住 */
+        .time-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); 
+            gap: 6px; 
+            margin: 10px 0; 
+            box-sizing: border-box;
+        }
+        
+        .time-tag { 
+            background: var(--morandi-bg); 
+            color: var(--text-dark); 
+            padding: 6px 4px; 
+            border-radius: 5px; 
+            text-align: center; 
+            font-size: 15px; 
+            font-weight: bold; 
+            border-bottom: 2px solid var(--morandi-blue); 
+            box-sizing: border-box; 
+            white-space: nowrap; /* 確保時間不換行 */
+        }
+        
+        .time-title { font-size: 16px; font-weight: bold; color: var(--morandi-blue); margin-top: 15px; display: block; border-left: 4px solid var(--morandi-blue); padding-left: 8px; box-sizing: border-box;}
+        .time-title.return { color: var(--morandi-green); border-left-color: var(--morandi-green); margin-top: 20px;}
 
         /* --- 站點清單樣式 --- */
-        .station-item { position: relative; padding: 10px 0 10px 28px; border-bottom: 1px dashed #eee; font-size: 17px; }
+        .station-item { position: relative; padding: 10px 0 10px 28px; border-bottom: 1px dashed #eee; font-size: 17px; box-sizing: border-box;}
         .station-item.highlight-station { color: var(--morandi-pink); font-weight: bold; }
+        .station-item.base-station { color: var(--text-dark); font-weight: bold; }
         .station-item::before { content: ''; position: absolute; left: -22px; top: 16px; width: 8px; height: 8px; border-radius: 50%; background-color: white; border: 3px solid #ccc; }
 
-        .nav-btn { display: block; background-color: var(--morandi-green); color: white; text-decoration: none; padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: bold; text-align: center; box-shadow: 0 4px 0 #6D7456; font-size: 19px; }
+        .nav-btn { display: block; background-color: var(--morandi-green); color: white; text-decoration: none; padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: bold; text-align: center; box-shadow: 0 4px 0 #6D7456; font-size: 19px; box-sizing: border-box;}
         .nav-btn.hotel-main { background-color: var(--morandi-pink); box-shadow: 0 4px 0 #B0858E; margin-bottom: 20px; }
         .note-area { width: 100%; min-height: 100px; border: 2px dashed var(--morandi-blue); background-color: #fafafa; border-radius: 12px; padding: 12px; font-size: 18px; box-sizing: border-box; resize: vertical; margin-top: 10px; }
     </style>
@@ -105,10 +130,11 @@
     <button class="accordion" style="border-left-color: #A0522D;">草輕交通巴士 (往白絲瀑布)</button>
     <div class="panel">
         <div class="time-info-box">
-            首班 <b>08:40</b> / 末班 <b>16:30</b><br>
+            首班 <b>08:40</b> / 末班 <b>16:30</b> (去程)<br>
             頻率：約 20-50 分鐘一班
         </div>
-        <span class="time-title">詳細時刻 (輕井澤站發)</span>
+        
+        <span class="time-title">去程時刻 (輕井澤站北口發)</span>
         <div class="time-grid">
             <div class="time-tag">08:40</div><div class="time-tag">09:00</div><div class="time-tag">09:30</div><div class="time-tag">09:40</div>
             <div class="time-tag">10:20</div><div class="time-tag">10:30</div><div class="time-tag">11:10</div><div class="time-tag">12:00</div>
@@ -116,8 +142,18 @@
             <div class="time-tag">13:40</div><div class="time-tag">14:20</div><div class="time-tag">14:40</div><div class="time-tag">15:10</div>
             <div class="time-tag">15:40</div><div class="time-tag">16:30</div>
         </div>
-        <span class="time-title">行經路線</span>
-        <div class="station-item">輕井澤站北口 (起點)</div>
+
+        <span class="time-title return">回程時刻 (白絲瀑布發)</span>
+        <div class="time-grid">
+            <div class="time-tag">09:28</div><div class="time-tag">09:50</div><div class="time-tag">10:18</div><div class="time-tag">10:48</div>
+            <div class="time-tag">11:28</div><div class="time-tag">11:48</div><div class="time-tag">12:28</div><div class="time-tag">12:48</div>
+            <div class="time-tag">13:08</div><div class="time-tag">13:28</div><div class="time-tag">13:48</div><div class="time-tag">14:08</div>
+            <div class="time-tag">14:28</div><div class="time-tag">15:08</div><div class="time-tag">15:28</div><div class="time-tag">15:48</div>
+            <div class="time-tag">16:08</div><div class="time-tag">16:38</div><div class="time-tag">17:08</div>
+        </div>
+
+        <span class="time-title">行經路線 (去程)</span>
+        <div class="station-item base-station">輕井澤站北口 (起點)</div>
         <div class="station-item">舊輕井澤</div>
         <div class="station-item">三笠</div>
         <div class="station-item highlight-station">白糸の滝 (白絲瀑布)</div>
@@ -126,18 +162,28 @@
     <button class="accordion" style="border-left-color: #4682B4;">西武觀光巴士 (往星野區)</button>
     <div class="panel">
         <div class="time-info-box">
-            首班 <b>08:30</b> / 末班 <b>18:25</b><br>
-            ⚠️ 14:00 至 15:55 之間無車次
+            首班 <b>08:30</b> / 末班 <b>18:25</b> (平日去程)<br>
+            ⚠️ 14:00 至 15:55 之間無車次 (去程)
         </div>
-        <span class="time-title">詳細時刻 (平日發車)</span>
+        
+        <span class="time-title">去程時刻 (平日, 輕井澤站北口發)</span>
         <div class="time-grid">
             <div class="time-tag">08:30</div><div class="time-tag">09:10</div><div class="time-tag">10:00</div><div class="time-tag">11:00</div>
             <div class="time-tag">11:45</div><div class="time-tag">12:25</div><div class="time-tag">13:00</div><div class="time-tag">14:00</div>
             <div class="time-tag">15:55</div><div class="time-tag">16:55</div><div class="time-tag">17:30</div><div class="time-tag">17:50</div>
             <div class="time-tag">18:25</div>
         </div>
-        <span class="time-title">行經路線</span>
-        <div class="station-item">輕井澤站北口 (起點)</div>
+
+        <span class="time-title return">回程時刻 (平日, 星野溫泉發)</span>
+        <div class="time-grid">
+            <div class="time-tag">09:05</div><div class="time-tag">09:40</div><div class="time-tag">10:35</div><div class="time-tag">11:25</div>
+            <div class="time-tag">12:35</div><div class="time-tag">13:10</div><div class="time-tag">14:20</div><div class="time-tag">14:55</div>
+            <div class="time-tag">16:35</div><div class="time-tag">17:25</div><div class="time-tag">18:05</div><div class="time-tag">18:25</div>
+            <div class="time-tag">18:55</div>
+        </div>
+
+        <span class="time-title">行經路線 (去程)</span>
+        <div class="station-item base-station">輕井澤站北口 (起點)</div>
         <div class="station-item">舊輕井澤</div>
         <div class="station-item">塩沢湖</div>
         <div class="station-item highlight-station">星野溫泉 (榆樹街小鎮)</div>
@@ -148,13 +194,21 @@
         <div class="time-info-box">
             班次極少，請務必準時候車
         </div>
-        <span class="time-title">發車時刻 (輕井澤站發)</span>
+        
+        <span class="time-title">去程時刻 (輕井澤站發)</span>
         <div class="time-grid">
             <div class="time-tag">09:15</div><div class="time-tag">11:35</div><div class="time-tag">12:50</div><div class="time-tag">14:15</div>
             <div class="time-tag">18:15</div>
         </div>
-        <span class="time-title">行經路線</span>
-        <div class="station-item">輕井澤站 (起點)</div>
+
+        <span class="time-title return">回程時刻 (六本辻・雲場池發)</span>
+        <div class="time-grid">
+            <div class="time-tag">10:07</div><div class="time-tag">12:12</div><div class="time-tag">13:42</div><div class="time-tag">15:07</div>
+            <div class="time-tag">18:52</div>
+        </div>
+
+        <span class="time-title">行經路線 (去程)</span>
+        <div class="station-item base-station">輕井澤站 (起點)</div>
         <div class="station-item">新道</div>
         <div class="station-item">舊輕井澤</div>
         <div class="station-item highlight-station">六本辻・雲場池</div>
