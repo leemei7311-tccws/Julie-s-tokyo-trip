@@ -12,7 +12,7 @@
             --morandi-green: #8E9775;
             --text-dark: #333333;
             --white: #ffffff;
-            --font-size-base: 20px; /* 手機端微調 */
+            --font-size-base: 20px; 
         }
 
         body {
@@ -61,7 +61,6 @@
         .nav-btn:active { transform: translateY(4px); box-shadow: none; }
         .dist-tag { display: block; color: #ffffff; font-size: 16px; margin-top: 3px; font-weight: normal; background: rgba(0,0,0,0.15); border-radius: 5px; padding: 2px; }
 
-        /* --- 修正後的 3D 翻轉卡片 --- */
         .flip-card {
             background-color: transparent; width: 100%; height: 320px;
             perspective: 1000px; margin-bottom: 15px; cursor: pointer;
@@ -87,6 +86,7 @@
         .fc-detail { font-size: 16px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 8px; margin-bottom: 6px; line-height: 1.3; }
 
         .note-area { width: 100%; min-height: 100px; border: 2px dashed var(--morandi-blue); background-color: #fafafa; border-radius: 12px; padding: 12px; font-size: 18px; box-sizing: border-box; resize: vertical; margin-top: 10px; }
+        .map-img { width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
@@ -106,6 +106,9 @@
 
 <div class="section-card">
     <h2>📅 4/22 輕井澤 ➔ 東京</h2>
+    
+    <img src="輕井澤車站平面圖中文.jpg" alt="輕井澤車站平面圖" class="map-img" onerror="this.style.display='none';">
+
     <p>🚆 <strong>新幹線購票小卡 (點擊翻轉給櫃檯)</strong></p>
     
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
@@ -190,8 +193,8 @@
 </div>
 
 <div class="section-card">
-    <h3>🛍️ 輕井澤最終血拼</h3>
-    <a href="https://maps.app.goo.gl/Outlet_Placeholder" class="nav-btn" target="_blank">🛒 導航至 輕井澤王子 Outlet</a>
+    <h3>🚉 輕井澤車站導航</h3>
+    <a href="https://maps.google.com/maps/contrib/108808432897014856676" class="nav-btn" target="_blank">🚆 導航至 輕井澤車站</a>
 </div>
 
 <div class="section-card">
@@ -204,6 +207,11 @@
     <a href="https://maps.app.goo.gl/2tXzb9rDHaRs3Xbg9" class="nav-btn" target="_blank">🚶 東銀座站 (日比谷/淺草線)<span class="dist-tag">步行 400m / 6分鐘</span></a>
     <a href="https://maps.app.goo.gl/EWN52UdGQCMnpGQD8" class="nav-btn" target="_blank">🚶 銀座站 (丸之內/日比谷線)<span class="dist-tag">步行 600m / 8分鐘</span></a>
     <a href="https://maps.app.goo.gl/BPWs6qaJsGci1ejr7" class="nav-btn" target="_blank">🚶 東京車站 (丸之內線)<span class="dist-tag">步行 800m / 12分鐘</span></a>
+</div>
+
+<div class="section-card">
+    <p>✍️ <strong>Day 4 備註：</strong></p>
+    <textarea class="note-area" placeholder="在此輸入筆記..."></textarea>
 </div>
 
 <script>
