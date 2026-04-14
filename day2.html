@@ -12,7 +12,7 @@
             --morandi-green: #8E9775;
             --text-dark: #333333;
             --white: #ffffff;
-            --font-size-base: 20px; /* 手機端微調 */
+            --font-size-base: 20px; 
         }
 
         body {
@@ -60,7 +60,7 @@
         .nav-btn.hotel-main { background-color: var(--morandi-pink); box-shadow: 0 4px 0 #B0858E; margin-bottom: 20px; }
         .nav-btn:active { transform: translateY(4px); box-shadow: none; }
 
-        /* --- 修正後的 3D 翻轉卡片 --- */
+        /* --- 3D 翻轉卡片 --- */
         .flip-card {
             background-color: transparent; width: 100%; height: 320px;
             perspective: 1000px; margin-bottom: 15px; cursor: pointer;
@@ -121,13 +121,13 @@
     
     <div class="step-container">
         <div class="step-title"><span class="step-num">1</span> 從八重洲中央口進入</div>
-        <div class="step-desc">從東京車站 1 樓「八重洲中央口」進入，找到「東北、上越、北陸新幹線轉乘口」。</div>
+        <div class="step-desc">從東京車站 1 樓「八重洲中央口」進入，尋找「東北、上越、北陸新幹線轉乘口」。</div>
     </div>
 
     <div class="step-container">
         <div class="step-title"><span class="step-num">2</span> 尋找 20-23 號月台</div>
-        <div class="step-desc">往輕井澤的新幹線月台是 20-23 號月台。跟著綠色新幹線圖示的指標走！</div>
-        <img src="7.jpg" alt="20-23號月台指標" class="step-img" onerror="this.style.display='none';">
+        <div class="step-desc">往輕井澤的新幹線位於 20-23 號月台。請跟著綠色新幹線標示前進！</div>
+        <img src="7.jpg" alt="東京車站轉乘指標" class="step-img" onerror="this.style.display='none';">
     </div>
 
     <h3 style="margin-top: 25px;">🚆 新幹線購票小卡 (點擊翻轉給櫃檯)</h3>
@@ -199,30 +199,30 @@
 
 <div class="section-card">
     <h3>🏨 輕井澤下榻飯店</h3>
-    <a href="https://www.google.com/maps/dir/?api=1&destination=GLAMDAY+STYLE+Karuizawa&travelmode=transit" class="nav-btn hotel-main" target="_blank">📍 導航至 Glamday Style Karuizawa</a>
+    <a href="https://maps.app.goo.gl/kwCVXubMRaHKCWeP6" class="nav-btn hotel-main" target="_blank">📍 導航至 Glamday Style Karuizawa</a>
 </div>
 
 <div class="section-card">
     <h3>🚲 輕井澤景點攻略與導航</h3>
     <ul class="spot-list">
-        <li><span class="highlight">舊輕井澤區：</span>你的飯店在這區！周邊有舊輕銀座通、雲場池。適合租「電動腳踏車」漫遊。</li>
-        <li><span class="highlight">中輕井澤區：</span>星野區（榆樹街小鎮）、教堂。需搭巴士前往。</li>
-        <li><span class="highlight">南口區：</span>出去有計程車招呼站、王子購物廣場。</li>
-        <li><span class="highlight">北口區：</span>出去有自行車租借店及巴士站 (巴士路線及時刻表請點選交通頁面)。</li>
+        <li><span class="highlight">舊輕井澤區：</span>妳的飯店在此區！周邊有舊輕銀座通、雲場池。建議租借「電動腳踏車」慢遊。</li>
+        <li><span class="highlight">中輕井澤區：</span>星野區（榆樹街小鎮）、石之教堂。需搭乘巴士前往。</li>
+        <li><span class="highlight">輕井澤車站南口區：</span>出去後有計程車招呼站、王子購物廣場。</li>
+        <li><span class="highlight">輕井澤車站北口區：</span>出去後有自行車租借店及巴士站 (路線及時刻表請見交通頁面)。</li>
     </ul>
     
     <p style="font-size: 16px; color: #666; margin-top: 15px;">直接導航景點：</p>
     <a href="https://www.google.com/maps/search/?api=1&query=雲場池" class="nav-btn" target="_blank">🌲 導航至 雲場池</a>
     <a href="https://www.google.com/maps/search/?api=1&query=舊輕井澤銀座通" class="nav-btn" target="_blank">🛍️ 導航至 舊輕井澤銀座通</a>
-    <a href="https://maps.app.goo.gl/kwCVXubMRaHKCWeP6輕井澤飯店(不要預設為從我的位置導航，用這個網址導航就好)" class="nav-btn" target="_blank">🚖 南口計程車招呼站</a>
-    <a href="https://maps.app.goo.gl/Se7ffvVviq9ephhm9輕井澤車站(搭乘新幹線)" class="nav-btn" target="_blank">🛒 王子購物廣場</a>
-    <a href="https://maps.app.goo.gl/GY5xWHWjJ3cRrqy39輕井澤王子購物廣場" class="nav-btn" target="_blank">🚲 北口自行車租借店</a>
-    <a href="https://maps.app.goo.gl/4VUn7rRmaGV27LJe9北口巴士站" class="nav-btn" target="_blank">🚌 北口巴士站</a>
+    <a href="https://maps.app.goo.gl/kwCVXubMRaHKCWeP6輕井澤飯店(不要預設為從我的位置導航，用這個網址導航就好)" class="nav-btn" target="_blank">🚖 南口：計程車招呼站</a>
+    <a href="https://maps.app.goo.gl/Se7ffvVviq9ephhm9輕井澤車站(搭乘新幹線)" class="nav-btn" target="_blank">🛒 南口：王子購物廣場</a>
+    <a href="https://maps.app.goo.gl/GY5xWHWjJ3cRrqy39輕井澤王子購物廣場" class="nav-btn" target="_blank">🚲 北口：自行車租借店</a>
+    <a href="https://maps.app.goo.gl/4VUn7rRmaGV27LJe9北口巴士站" class="nav-btn" target="_blank">🚌 北口：巴士站</a>
 </div>
 
 <div class="section-card">
     <p>✍️ <strong>Day 2 備註：</strong></p>
-    <textarea class="note-area" placeholder="筆記區..."></textarea>
+    <textarea class="note-area" placeholder="在此輸入筆記..."></textarea>
 </div>
 
 <script>
