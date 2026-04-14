@@ -85,16 +85,20 @@
         .fc-cn-title { font-size: 14px; opacity: 0.9; text-align: center; margin-bottom: 12px; }
         .fc-detail { font-size: 16px; background: rgba(255,255,255,0.2); border-radius: 6px; padding: 8px; margin-bottom: 6px; line-height: 1.3; }
 
-        .spot-list { font-size: 17px; padding-left: 18px; margin-bottom: 15px; color: #444; }
-        .spot-list li { margin-bottom: 8px; }
-        .highlight { color: var(--morandi-pink); font-weight: bold; }
-
         /* --- 搭車攻略步驟樣式 --- */
         .step-container { margin-bottom: 20px; padding: 15px; background-color: #fcfcfc; border-radius: 15px; border-left: 6px solid var(--morandi-blue); }
         .step-title { font-size: 18px; font-weight: bold; color: var(--text-dark); margin-top: 0; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
         .step-num { background: var(--morandi-blue); color: white; border-radius: 50%; min-width: 28px; height: 28px; display: inline-flex; justify-content: center; align-items: center; font-size: 16px; }
         .step-desc { font-size: 16px; color: #555; margin-bottom: 10px; line-height: 1.5; }
         .step-img { width: 100%; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+
+        /* --- 景點導航與巴士清單樣式 --- */
+        .info-box { background: #fdfafb; border-left: 5px solid var(--morandi-pink); padding: 12px; font-size: 16px; margin: 12px 0; line-height: 1.5; }
+        .bus-list { list-style: none; padding: 0; margin: 10px 0; }
+        .bus-item { margin-bottom: 15px; background: #fafafa; padding: 10px; border-radius: 10px; border: 1px solid #eee; }
+        .bus-name { color: var(--morandi-green); font-weight: bold; font-size: 18px; border-bottom: 1px solid #ddd; padding-bottom: 5px; margin-bottom: 8px; display: block; }
+        .bus-detail { font-size: 16px; color: #666; margin-left: 5px; display: block; margin-bottom: 4px; }
+        .highlight { color: var(--morandi-pink); font-weight: bold; }
 
         .note-area { width: 100%; min-height: 100px; border: 2px dashed var(--morandi-blue); background-color: #fafafa; border-radius: 12px; padding: 12px; font-size: 18px; box-sizing: border-box; resize: vertical; margin-top: 10px; }
     </style>
@@ -203,21 +207,54 @@
 </div>
 
 <div class="section-card">
-    <h3>🚲 輕井澤景點攻略與導航</h3>
-    <ul class="spot-list">
-        <li><span class="highlight">舊輕井澤區：</span>妳的飯店在此區！周邊有舊輕銀座通、雲場池。建議租借「電動腳踏車」慢遊。</li>
-        <li><span class="highlight">中輕井澤區：</span>星野區（榆樹街小鎮）、石之教堂。需搭乘巴士前往。</li>
-        <li><span class="highlight">輕井澤車站南口區：</span>出去後有計程車招呼站、王子購物廣場。</li>
-        <li><span class="highlight">輕井澤車站北口區：</span>出去後有自行車租借店及巴士站 (路線及時刻表請見交通頁面)。</li>
-    </ul>
+    <h3>🚲 輕井澤重點交通方式</h3>
+    <div class="info-box">
+        <span class="highlight">舊輕井澤區：</span>妳的飯店在此區！周邊有舊輕銀座通、雲場池。建議租借「電動腳踏車」慢遊。
+    </div>
     
-    <p style="font-size: 16px; color: #666; margin-top: 15px;">直接導航景點：</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=雲場池" class="nav-btn" target="_blank">🌲 導航至 雲場池</a>
-    <a href="https://www.google.com/maps/search/?api=1&query=舊輕井澤銀座通" class="nav-btn" target="_blank">🛍️ 導航至 舊輕井澤銀座通</a>
-    <a href="https://maps.app.goo.gl/kwCVXubMRaHKCWeP6輕井澤飯店(不要預設為從我的位置導航，用這個網址導航就好)" class="nav-btn" target="_blank">🚖 南口：計程車招呼站</a>
+    <p style="font-size: 15px; color: #888; margin-bottom: 10px;">💡 以下巴士皆在「車站北口」搭乘：</p>
+
+    <div class="bus-list">
+        <div class="bus-item">
+            <span class="bus-name">1. 草輕交通巴士</span>
+            <span class="bus-detail">🔹 舊輕井澤銀座通：於「旧軽井沢」下車 (4分)</span>
+            <span class="bus-detail">🔹 舊三笠飯店：於「三笠」下車 (8分) <i style="font-size:12px;">*暫停開放</i></span>
+            <span class="bus-detail">🔹 白絲瀑布：於「白糸の滝」下車 (23分)</span>
+        </div>
+
+        <div class="bus-item">
+            <span class="bus-name">2. 西武觀光巴士</span>
+            <span class="bus-detail">🔹 舊輕井澤銀座通：於「旧軽井沢」下車 (4分)</span>
+            <span class="bus-detail">🔹 榆樹街小鎮：於「星野温泉トンボの湯」下車 (19分)</span>
+            <span class="bus-detail">🔹 輕井澤Taliesin：於「塩沢湖」下車 (15分)</span>
+        </div>
+
+        <div class="bus-item">
+            <span class="bus-name">3. 町內循環巴士 (內/外回)</span>
+            <span class="bus-detail">🔹 雲場池：於「六本辻・雲場池」下車 (內回 6分)</span>
+            <span class="bus-detail">🔹 舊輕井澤銀座通：於「旧軽井沢」下車 (內回 4分)</span>
+            <span class="bus-detail">🔹 中輕井澤：於「中軽井沢駅」下車 (內回 18分)</span>
+            <span class="bus-detail">🔹 輕井澤Taliesin：於「風越公園」下車 (外回 24分)</span>
+        </div>
+    </div>
+</div>
+
+<div class="section-card">
+    <h3>📍 輕井澤車站出口指引</h3>
+    
+    <p class="highlight" style="margin-bottom: 5px;">南口區：</p>
+    <p style="font-size: 16px; margin-top: 0; color: #555;">出去後有計程車招呼站、王子購物廣場。</p>
+    <a href="https://maps.app.goo.gl/kwCVXubMRaHKCWeP6輕井澤飯店" class="nav-btn" target="_blank">🚖 南口：計程車招呼站</a>
     <a href="https://maps.app.goo.gl/Se7ffvVviq9ephhm9輕井澤車站(搭乘新幹線)" class="nav-btn" target="_blank">🛒 南口：王子購物廣場</a>
+
+    <p class="highlight" style="margin-bottom: 5px; margin-top: 20px;">北口區：</p>
+    <p style="font-size: 16px; margin-top: 0; color: #555;">出去後有自行車租借店及巴士站。</p>
     <a href="https://maps.app.goo.gl/GY5xWHWjJ3cRrqy39輕井澤王子購物廣場" class="nav-btn" target="_blank">🚲 北口：自行車租借店</a>
     <a href="https://maps.app.goo.gl/4VUn7rRmaGV27LJe9北口巴士站" class="nav-btn" target="_blank">🚌 北口：巴士站</a>
+    
+    <p class="highlight" style="margin-top: 25px; border-top: 1px solid #eee; padding-top: 15px;">🔍 更多景點導航：</p>
+    <a href="https://maps.app.goo.gl/fjw9Rzh7YL5NFg3PA" class="nav-btn" target="_blank">🌲 雲場池 (可騎自行車前往)</a>
+    <a href="https://maps.app.goo.gl/ov6YDh39PeWmhJi39舊輕井澤銀座通(可騎自行車前往)" class="nav-btn" target="_blank">🛍️ 舊輕井澤銀座通</a>
 </div>
 
 <div class="section-card">
