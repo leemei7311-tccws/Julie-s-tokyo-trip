@@ -51,6 +51,13 @@
 
         h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 0; font-size: 1.25rem; }
 
+        .nav-btn {
+            display: block; background-color: var(--morandi-green); color: white; text-decoration: none;
+            padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: bold; text-align: center;
+            box-shadow: 0 4px 0 #6D7456; font-size: 19px;
+        }
+        .nav-btn:active { transform: translateY(4px); box-shadow: none; }
+
         /* --- 手風琴樣式 --- */
         .accordion {
             background-color: #f9f9f9; color: var(--text-dark); cursor: pointer; 
@@ -89,6 +96,14 @@
     <a href="day4.html" class="tab-btn">4/22</a>
     <a href="day5.html" class="tab-btn">4/23</a>
     <a href="metro.html" class="tab-btn active">🗺️ 交通</a>
+</div>
+
+<div class="section-card">
+    <h2>🗺️ 東京車站平面圖</h2>
+    <p style="font-size: 16px; color: #666; margin-top: 10px;">車站內標示極其複雜，建議查看 PDF 原圖並利用雙指放大確認出口與月台。</p>
+    <a href="tokyo_station_map.pdf" target="_blank" class="nav-btn">
+        🔍 開啟高畫質平面圖 (PDF)
+    </a>
 </div>
 
 <div class="section-card">
