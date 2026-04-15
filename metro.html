@@ -12,7 +12,7 @@
             --morandi-green: #8E9775;
             --text-dark: #333333;
             --white: #ffffff;
-            --font-size-base: 20px; /* 手機端優化字體，避免擠壓 */
+            --font-size-base: 20px; 
         }
 
         body {
@@ -51,7 +51,7 @@
 
         h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 0; font-size: 1.25rem; }
 
-        /* --- 手風琴樣式優化 --- */
+        /* --- 手風琴樣式 --- */
         .accordion {
             background-color: #f9f9f9; color: var(--text-dark); cursor: pointer; 
             padding: 16px; width: 100%; text-align: left; border: none; outline: none; 
@@ -94,79 +94,65 @@
 <div class="section-card">
     <h2>🗺️ 交通路線總覽</h2>
 
-    <div class="category-title">Karuizawa Bus / 輕井澤巴士</div>
-    
-    <button class="accordion" style="border-left-color: #A0522D;">草輕交通巴士 (往白絲瀑布)</button>
-    <div class="panel">
-        <div class="station-item">輕井澤站北口 (起點)</div>
-        <div class="station-item">舊輕井澤</div>
-        <div class="station-item">三笠</div>
-        <div class="station-item hotel-station">白糸の滝 (白絲瀑布)</div>
-    </div>
-
-    <button class="accordion" style="border-left-color: #4682B4;">西武觀光巴士 (往星野區)</button>
-    <div class="panel">
-        <div class="station-item">輕井澤站北口 (起點)</div>
-        <div class="station-item">舊輕井澤</div>
-        <div class="station-item">塩沢湖</div>
-        <div class="station-item hotel-station">星野溫泉 (榆樹街小鎮)</div>
-    </div>
-
-    <button class="accordion" style="border-left-color: #8B4513;">町內循環巴士 (東/南迴線)</button>
-    <div class="panel">
-        <div class="station-item">輕井澤站 (起點)</div>
-        <div class="station-item">新道</div>
-        <div class="station-item">舊輕井澤</div>
-        <div class="station-item hotel-station">六本辻・雲場池</div>
-    </div>
-
     <div class="category-title">Tokyo Metro / 東京核心地鐵</div>
 
     <button class="accordion" style="border-left-color: #9CAEB7;">H 日比谷線 (Hibiya Line)</button>
     <div class="panel">
-        <div class="station-item hotel-station">H01 中目黑 (文青賞櫻勝地)</div>
-        <div class="station-item">H04 六本木</div>
-        <div class="station-item hotel-station">H09 銀座</div>
-        <div class="station-item hotel-station">H10 東銀座 (近飯店)</div>
-        <div class="station-item">H11 築地</div>
-        <div class="station-item">H18 上野</div>
+        <div class="station-item">H01 中目黑 (文青賞櫻勝地、星巴克旗艦店)</div>
+        <div class="station-item">H04 六本木 (六本木之丘、東京鐵塔)</div>
+        <div class="station-item">H05 神谷町 (近麻布台之丘)</div>
+        <div class="station-item hotel-station">H09 銀座 (精品百貨、步行者天國)</div>
+        <div class="station-item hotel-station">H10 東銀座 (近飯店、歌舞伎座)</div>
+        <div class="station-item">H11 築地 (築地場外市場)</div>
+        <div class="station-item">H16 秋葉原 (動漫天堂、電器街)</div>
+        <div class="station-item">H18 上野 (阿美橫町、上野公園)</div>
     </div>
 
     <button class="accordion" style="border-left-color: #F39700;">G 銀座線 (Ginza Line)</button>
     <div class="panel">
-        <div class="station-item">G01 澀谷</div>
-        <div class="station-item">G08 新橋</div>
-        <div class="station-item hotel-station">G09 銀座</div>
-        <div class="station-item hotel-station">G10 京橋 (近飯店)</div>
-        <div class="station-item">G16 上野</div>
-        <div class="station-item">G19 淺草</div>
+        <div class="station-item">G01 澀谷 (SHIBUYA SKY、宮下公園)</div>
+        <div class="station-item">G02 表參道 (時尚名牌街、精品咖啡)</div>
+        <div class="station-item">G08 新橋 (轉百合海鷗號往台場)</div>
+        <div class="station-item hotel-station">G09 銀座 (百貨商圈)</div>
+        <div class="station-item hotel-station">G10 京橋 (鄰近飯店)</div>
+        <div class="station-item">G11 日本橋 (傳統老店、高島屋)</div>
+        <div class="station-item">G16 上野 (轉乘中心)</div>
+        <div class="station-item">G19 淺草 (雷門、仲見世通)</div>
     </div>
 
     <button class="accordion" style="border-left-color: #E60012;">M 丸之內線 (Marunouchi Line)</button>
     <div class="panel">
-        <div class="station-item">M08 新宿</div>
-        <div class="station-item hotel-station">M16 銀座</div>
-        <div class="station-item hotel-station">M17 東京站 (轉新幹線)</div>
-        <div class="station-item">M25 池袋</div>
+        <div class="station-item">M08 新宿 (歌舞伎町、新宿御苑)</div>
+        <div class="station-item">M14 國會議事堂前 (近東京鐵塔攝影點)</div>
+        <div class="station-item hotel-station">M16 銀座 (百貨中心)</div>
+        <div class="station-item hotel-station">M17 東京站 (轉乘新幹線、皇居)</div>
+        <div class="station-item">M22 後樂園 (東京巨蛋、LaQua溫泉)</div>
+        <div class="station-item">M25 池袋 (Sunshine City、動漫文化)</div>
     </div>
 
     <button class="accordion" style="border-left-color: #D7C252;">Y 有樂町線 (Yurakucho Line)</button>
     <div class="panel">
-        <div class="station-item">Y09 池袋</div>
-        <div class="station-item">Y18 有樂町</div>
-        <div class="station-item hotel-station">Y19 銀座一丁目 (最近飯店)</div>
-        <div class="station-item">Y24 新木場</div>
+        <div class="station-item">Y09 池袋 (購物與美食)</div>
+        <div class="station-item">Y18 有樂町 (東京國際論壇、近銀座)</div>
+        <div class="station-item hotel-station">Y19 銀座一丁目 (最近飯店之車站)</div>
+        <div class="station-item">Y22 豐洲 (teamLab Planets、LaLaport)</div>
+        <div class="station-item">Y24 新木場 (轉乘前往迪士尼)</div>
     </div>
 
     <button class="accordion" style="border-left-color: #81C23A;">JR 山手線 (Yamanote Line)</button>
     <div class="panel">
-        <div class="station-item">澀谷 / 原宿 / 新宿</div>
-        <div class="station-item">池袋 / 上野</div>
-        <div class="station-item hotel-station">東京 (轉新幹線)</div>
-        <div class="station-item hotel-station">有樂町 (近銀座)</div>
+        <div class="station-item">澀谷 (年輕人潮流指標)</div>
+        <div class="station-item">原宿 (竹下通、明治神宮)</div>
+        <div class="station-item">新宿 (繁華夜生活、購物中心)</div>
+        <div class="station-item">池袋 (百貨商圈)</div>
+        <div class="station-item">上野 (阿美橫町、傳統美食)</div>
+        <div class="station-item">秋葉原 (動漫與電器)</div>
+        <div class="station-item hotel-station">東京 (重要交通樞紐、轉乘新幹線)</div>
+        <div class="station-item hotel-station">有樂町 (近銀座區)</div>
+        <div class="station-item">新橋 (轉乘百合海鷗號往台場)</div>
     </div>
 
-    <p style="text-align:center; color:#999; font-size:15px; margin-top:20px;">*僅列出核心站點與鄰近飯店車站*</p>
+    <p style="text-align:center; color:#999; font-size:15px; margin-top:20px;">*僅列出核心觀光站點與鄰近飯店車站*</p>
 </div>
 
 <script>
