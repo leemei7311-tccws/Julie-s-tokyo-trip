@@ -52,6 +52,18 @@
         h2 { color: var(--morandi-pink); border-bottom: 1px solid #eee; padding-bottom: 8px; margin-top: 0; font-size: 1.25rem; }
         h3 { color: var(--morandi-green); font-size: 1.1rem; margin-top: 12px; }
 
+        /* 美編標題樣式 */
+        .map-header {
+            color: var(--morandi-blue);
+            border-bottom: 2px dashed var(--morandi-blue);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .nav-btn {
             display: block; background-color: var(--morandi-green); color: white; text-decoration: none;
             padding: 15px; border-radius: 12px; margin: 10px 0; font-weight: bold; text-align: center;
@@ -107,6 +119,7 @@
 <div class="section-card">
     <h2>📅 4/22 輕井澤 ➔ 東京</h2>
     
+    <h3 class="map-header">🗺️ 輕井澤車站平面圖</h3>
     <img src="輕井澤車站平面圖中文.jpg" alt="輕井澤車站平面圖" class="map-img" onerror="this.style.display='none';">
 
     <p>🚆 <strong>新幹線購票小卡 (點擊翻轉給櫃檯)</strong></p>
@@ -146,7 +159,7 @@
     <div class="flip-card" onclick="this.classList.toggle('flipped')">
         <div class="flip-card-inner">
             <div class="flip-card-front">
-                <div class="fc-time">13:00 ➔ 14:12</div>
+                <div class="fc-time">13:04 ➔ 14:12</div>
                 <div class="fc-train">淺間 616號 (Asama)</div>
                 <div class="fc-track">輕井澤 [1或2月台] ➔ 東京 [22月台]</div>
             </div>
@@ -194,7 +207,7 @@
 
 <div class="section-card">
     <h3>🚉 輕井澤車站導航</h3>
-    <a href="https://maps.google.com/maps/contrib/108808432897014856676" class="nav-btn" target="_blank">🚆 導航至 輕井澤車站</a>
+    <a href="https://share.google/pidJrOpAsMK96CyGS" class="nav-btn" target="_blank">🚆 導航至 輕井澤車站</a>
 </div>
 
 <div class="section-card">
